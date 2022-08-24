@@ -10,7 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_22_105243) do
+ActiveRecord::Schema.define(version: 2022_08_24_124913) do
+
+  create_table "authors", force: :cascade do |t|
+    t.integer "users_id"
+    t.string "name", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["users_id"], name: "index_authors_on_users_id"
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.integer "authors_id"
+    t.integer "categories_id"
+    t.string "name", default: "", null: false
+    t.string "description", default: "", null: false
+    t.string "title_image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["authors_id"], name: "index_books_on_authors_id"
+    t.index ["categories_id"], name: "index_books_on_categories_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "books_id"
+    t.integer "users_id"
+    t.string "value", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["books_id"], name: "index_comments_on_books_id"
+    t.index ["users_id"], name: "index_comments_on_users_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username", default: "", null: false
