@@ -1,6 +1,7 @@
 class User < ApplicationRecord
+  has_one :author
+  has_many :comment
 
-  
   validates :username, :phone_number, :email, presence: true
   validates :email, uniqueness: true,
             format: { with: URI::MailTo::EMAIL_REGEXP }
