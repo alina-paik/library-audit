@@ -12533,3 +12533,226 @@ FOREIGN KEY ("authors_id")
   ↳ bin/rails:9
   [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+Started POST "/login" for ::1 at 2022-08-29 21:27:03 +0300
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"testttest@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"testttest@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "testttest@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:4
+Completed 200 OK in 48ms (Views: 0.8ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/login" for ::1 at 2022-08-29 21:28:21 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"testttest@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"testttest@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "testttest@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:4
+Completed 200 OK in 21ms (Views: 0.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users" for ::1 at 2022-08-29 21:28:39 +0300
+Processing by UsersController#index as */*
+Filter chain halted as :authentication rendered or redirected
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/2" for ::1 at 2022-08-29 21:29:14 +0300
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+Filter chain halted as :authentication rendered or redirected
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2022-08-29 21:29:18 +0300
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8
+Completed 200 OK in 85ms (Views: 69.2ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/login" for ::1 at 2022-08-29 21:29:51 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"alinapaik19@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"alinapaik19@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alinapaik19@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:4
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/login" for ::1 at 2022-08-29 21:31:22 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"testtest@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"testtest@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "testtest@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:4
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories" for ::1 at 2022-08-29 21:43:06 +0300
+Processing by CategoriesController#index as */*
+Completed 500 Internal Server Error in 75ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (Unknown validator: 'LenthValidator'):
+  
+app/models/category.rb:4:in `<class:Category>'
+app/models/category.rb:1:in `<main>'
+app/controllers/categories_controller.rb:4:in `index'
+Started GET "/categories" for ::1 at 2022-08-29 21:44:47 +0300
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (7.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:5
+Completed 200 OK in 34ms (Views: 4.2ms | ActiveRecord: 8.4ms)
+
+
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Action and Adventure"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (2.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Action and Adventure"], ["created_at", "2022-08-29 18:46:40.426541"], ["updated_at", "2022-08-29 18:46:40.426541"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (12.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Classics"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (0.9ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Classics"], ["created_at", "2022-08-29 18:46:40.452813"], ["updated_at", "2022-08-29 18:46:40.452813"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (6.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Detective and Mystery"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Detective and Mystery"], ["created_at", "2022-08-29 18:46:40.471195"], ["updated_at", "2022-08-29 18:46:40.471195"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (5.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Fantasy"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (0.9ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Fantasy"], ["created_at", "2022-08-29 18:46:40.513971"], ["updated_at", "2022-08-29 18:46:40.513971"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (7.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Historical Fiction"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Historical Fiction"], ["created_at", "2022-08-29 18:46:40.533313"], ["updated_at", "2022-08-29 18:46:40.533313"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (8.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Horror"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Horror"], ["created_at", "2022-08-29 18:46:40.554944"], ["updated_at", "2022-08-29 18:46:40.554944"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Literary Fiction"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Literary Fiction"], ["created_at", "2022-08-29 18:46:40.573786"], ["updated_at", "2022-08-29 18:46:40.573786"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (6.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Romance"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Romance"], ["created_at", "2022-08-29 18:46:40.597171"], ["updated_at", "2022-08-29 18:46:40.597171"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (4.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Other"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (2.0ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Other"], ["created_at", "2022-08-29 18:46:40.616011"], ["updated_at", "2022-08-29 18:46:40.616011"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (5.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+Started GET "/categories" for ::1 at 2022-08-29 21:47:47 +0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:5
+Completed 200 OK in 52ms (Views: 24.4ms | ActiveRecord: 4.3ms)
+
+
+Started POST "/books" for ::1 at 2022-08-29 21:48:03 +0300
+  
+ArgumentError (Unknown validator: 'LenthValidator'):
+  
+app/models/book.rb:7:in `<class:Book>'
+app/models/book.rb:1:in `<main>'
+Started POST "/books" for ::1 at 2022-08-29 21:48:50 +0300
+Processing by BooksController#create as */*
+  Parameters: {"book"=>{"category_id"=>7, "name"=>"looool", "descriprion"=>"testtestetsetsetstet"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 308ms (ActiveRecord: 6.6ms)
+
+
+  
+NameError (undefined local variable or method `user' for #<BooksController:0x000055fa82803658>
+Did you mean?  super):
+  
+app/controllers/books_controller.rb:33:in `book_create_params'
+app/controllers/books_controller.rb:18:in `create'
+Started POST "/login" for ::1 at 2022-08-29 21:49:17 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"testtest@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"testtest@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "testtest@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:4
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/books" for ::1 at 2022-08-29 21:49:22 +0300
+Processing by BooksController#create as */*
+  Parameters: {"book"=>{"category_id"=>7, "name"=>"looool", "descriprion"=>"testtestetsetsetstet"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 293ms (ActiveRecord: 0.4ms)
+
+
+  
+NameError (undefined local variable or method `user' for #<BooksController:0x00007f6a2c2dcba0>
+Did you mean?  super):
+  
+app/controllers/books_controller.rb:33:in `book_create_params'
+app/controllers/books_controller.rb:18:in `create'
+Started POST "/books" for ::1 at 2022-08-29 21:52:42 +0300
+Processing by BooksController#create as */*
+  Parameters: {"book"=>{"category_id"=>7, "name"=>"looool", "descriprion"=>"testtestetsetsetstet"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 251ms (ActiveRecord: 3.0ms)
+
+
+  
+NameError (undefined local variable or method `user' for #<BooksController:0x00007f6a2c342860>
+Did you mean?  super):
+  
+app/controllers/books_controller.rb:33:in `book_create_params'
+app/controllers/books_controller.rb:18:in `create'
+Started POST "/books" for ::1 at 2022-08-29 21:56:04 +0300
+Processing by BooksController#create as */*
+  Parameters: {"book"=>{"category_id"=>7, "name"=>"looool", "descriprion"=>"testtestetsetsetstet"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 500 Internal Server Error in 73ms (ActiveRecord: 6.6ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'category_id' for Book.):
+  
+app/controllers/books_controller.rb:18:in `create'

@@ -1,10 +1,12 @@
 class ApplicationController < ActionController::API
 SECRET = "yoursecretword"
 
+  attr_reader :user
+
   def authentication
       decode_data = decode_user_data(request.cookies["session"])
       user_id = decode_data[0]["user_id"] unless !decode_data
-      user = User.find(user_id) if user_id
+      @user = User.find(user_id) if user_id
 
 
       if user

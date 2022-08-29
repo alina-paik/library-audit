@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   resources :users
   post '/login', to: 'authentication#login'
   delete '/logout', to: 'authentication#logout'
-  # get '/*a', to: 'application#not_found'
+
+  resources :books
+  resources :categories
 end
