@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authentication, except: %i[create]
+  before_action :authentication, except: %i[create index]
   before_action :find_user, except: %i[create index]
 
   # GET /users
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
-      token = encode_user_data({ user_data: user.id })
+      token = encode_user_data({ user_id: user.id })
 
       # return to user
       render json: user
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
       end
     end
 
-  
+
 
   private
 
