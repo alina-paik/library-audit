@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_24_124913) do
+ActiveRecord::Schema.define(version: 2022_08_29_134550) do
 
   create_table "authors", force: :cascade do |t|
     t.integer "users_id"
@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(version: 2022_08_24_124913) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["users_id"], name: "index_authors_on_users_id"
+  end
+
+  create_table "authors_books", force: :cascade do |t|
+    t.integer "books_id"
+    t.integer "authors_id"
+    t.index ["authors_id"], name: "index_authors_books_on_authors_id"
+    t.index ["books_id"], name: "index_authors_books_on_books_id"
   end
 
   create_table "books", force: :cascade do |t|
@@ -30,6 +37,13 @@ ActiveRecord::Schema.define(version: 2022_08_24_124913) do
     t.datetime "updated_at", null: false
     t.index ["authors_id"], name: "index_books_on_authors_id"
     t.index ["categories_id"], name: "index_books_on_categories_id"
+  end
+
+  create_table "books_categories", force: :cascade do |t|
+    t.integer "books_id"
+    t.integer "categories_id"
+    t.index ["books_id"], name: "index_books_categories_on_books_id"
+    t.index ["categories_id"], name: "index_books_categories_on_categories_id"
   end
 
   create_table "categories", force: :cascade do |t|
