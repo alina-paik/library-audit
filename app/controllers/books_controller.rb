@@ -18,8 +18,12 @@ class BooksController < ApplicationController
     author = (Author.find_by(user_id: user.id) || Author.create(user_id: user.id, name: user.username))
     # author = Author.find_by(user_id: user.id)
     # author = Author.create(user_id: user.id, name: user.username) unless author
-    category = Category.find(params[:category_id])
-    @book = Book.new(book_create_params.merge(category: category))
+
+    category = Category.find(params[:book][:category_id])
+
+    @book = Book.new(book_create_params)
+    @book.categories << category
+    @book.authors << author
     if @book.save
          render json: @book, status: :created, location: @book
     else
@@ -27,6 +31,7 @@ class BooksController < ApplicationController
     end
   end
 
+  
   private
 
   def set_book
@@ -34,6 +39,6 @@ class BooksController < ApplicationController
   end
 
   def book_create_params
-      params.require(:book).permit(:name, :descriprion).merge(user_id: user.id)
+      params.require(:book).permit(:name, :description)
   end
 end

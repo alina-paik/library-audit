@@ -13,37 +13,33 @@
 ActiveRecord::Schema.define(version: 2022_08_29_134550) do
 
   create_table "authors", force: :cascade do |t|
-    t.integer "users_id"
+    t.integer "user_id"
     t.string "name", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_authors_on_users_id"
+    t.index ["user_id"], name: "index_authors_on_user_id"
   end
 
   create_table "authors_books", force: :cascade do |t|
-    t.integer "books_id"
-    t.integer "authors_id"
-    t.index ["authors_id"], name: "index_authors_books_on_authors_id"
-    t.index ["books_id"], name: "index_authors_books_on_books_id"
+    t.integer "book_id"
+    t.integer "author_id"
+    t.index ["author_id"], name: "index_authors_books_on_author_id"
+    t.index ["book_id"], name: "index_authors_books_on_book_id"
   end
 
   create_table "books", force: :cascade do |t|
-    t.integer "authors_id"
-    t.integer "categories_id"
     t.string "name", default: "", null: false
     t.string "description", default: "", null: false
     t.string "title_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["authors_id"], name: "index_books_on_authors_id"
-    t.index ["categories_id"], name: "index_books_on_categories_id"
   end
 
   create_table "books_categories", force: :cascade do |t|
-    t.integer "books_id"
-    t.integer "categories_id"
-    t.index ["books_id"], name: "index_books_categories_on_books_id"
-    t.index ["categories_id"], name: "index_books_categories_on_categories_id"
+    t.integer "book_id"
+    t.integer "category_id"
+    t.index ["book_id"], name: "index_books_categories_on_book_id"
+    t.index ["category_id"], name: "index_books_categories_on_category_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -53,13 +49,13 @@ ActiveRecord::Schema.define(version: 2022_08_29_134550) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "books_id"
-    t.integer "users_id"
+    t.integer "book_id"
+    t.integer "user_id"
     t.string "value", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["books_id"], name: "index_comments_on_books_id"
-    t.index ["users_id"], name: "index_comments_on_users_id"
+    t.index ["book_id"], name: "index_comments_on_book_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

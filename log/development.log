@@ -12756,3 +12756,1400 @@ Completed 500 Internal Server Error in 73ms (ActiveRecord: 6.6ms)
 ActiveModel::UnknownAttributeError (unknown attribute 'category_id' for Book.):
   
 app/controllers/books_controller.rb:18:in `create'
+  [1m[36mAuthor Load (2.3ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "authors"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (9.7ms)[0m  [1m[35mCREATE TABLE "authors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "users_id" integer, "name" varchar DEFAULT '' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (11.3ms)[0m  [1m[35mCREATE  INDEX "index_authors_on_users_id" ON "authors" ("users_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "authors_books"[0m
+  ↳ db/schema.rb:23
+  [1m[35m (9.9ms)[0m  [1m[35mCREATE TABLE "authors_books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "books_id" integer, "authors_id" integer)[0m
+  ↳ db/schema.rb:23
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE  INDEX "index_authors_books_on_authors_id" ON "authors_books" ("authors_id")[0m
+  ↳ db/schema.rb:23
+  [1m[35m (15.6ms)[0m  [1m[35mCREATE  INDEX "index_authors_books_on_books_id" ON "authors_books" ("books_id")[0m
+  ↳ db/schema.rb:23
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "books"[0m
+  ↳ db/schema.rb:30
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "authors_id" integer, "categories_id" integer, "name" varchar DEFAULT '' NOT NULL, "description" varchar DEFAULT '' NOT NULL, "title_image" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:30
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE  INDEX "index_books_on_authors_id" ON "books" ("authors_id")[0m
+  ↳ db/schema.rb:30
+  [1m[35m (9.7ms)[0m  [1m[35mCREATE  INDEX "index_books_on_categories_id" ON "books" ("categories_id")[0m
+  ↳ db/schema.rb:30
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "books_categories"[0m
+  ↳ db/schema.rb:42
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "books_categories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "books_id" integer, "categories_id" integer)[0m
+  ↳ db/schema.rb:42
+  [1m[35m (11.1ms)[0m  [1m[35mCREATE  INDEX "index_books_categories_on_books_id" ON "books_categories" ("books_id")[0m
+  ↳ db/schema.rb:42
+  [1m[35m (10.4ms)[0m  [1m[35mCREATE  INDEX "index_books_categories_on_categories_id" ON "books_categories" ("categories_id")[0m
+  ↳ db/schema.rb:42
+  [1m[35m (5.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories"[0m
+  ↳ db/schema.rb:49
+  [1m[35m (10.2ms)[0m  [1m[35mCREATE TABLE "categories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar DEFAULT '' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:49
+  [1m[35m (2.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments"[0m
+  ↳ db/schema.rb:55
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "books_id" integer, "users_id" integer, "value" varchar DEFAULT '' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:55
+  [1m[35m (15.3ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_books_id" ON "comments" ("books_id")[0m
+  ↳ db/schema.rb:55
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_users_id" ON "comments" ("users_id")[0m
+  ↳ db/schema.rb:55
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:65
+  [1m[35m (9.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar DEFAULT '' NOT NULL, "email" varchar DEFAULT '' NOT NULL, "password" varchar DEFAULT '' NOT NULL, "phone_number" varchar DEFAULT '' NOT NULL, "admin" boolean DEFAULT 0, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:65
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/schema.rb:65
+  [1m[35m (12.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_phone_number" ON "users" ("phone_number")[0m
+  ↳ db/schema.rb:65
+  [1m[35m (12.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (14.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220829134550)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (11.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220824124913),
+(20220824124443),
+(20220829133449),
+(20220822105243),
+(20220824123435),
+(20220824120902);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (9.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-08-30 09:30:28.170037"], ["updated_at", "2022-08-30 09:30:28.170037"]]
+  ↳ db/schema.rb:13
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "authors"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE "authors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "users_id" integer, "name" varchar DEFAULT '' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE  INDEX "index_authors_on_users_id" ON "authors" ("users_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "authors_books"[0m
+  ↳ db/schema.rb:23
+  [1m[35m (11.2ms)[0m  [1m[35mCREATE TABLE "authors_books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "books_id" integer, "authors_id" integer)[0m
+  ↳ db/schema.rb:23
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE  INDEX "index_authors_books_on_authors_id" ON "authors_books" ("authors_id")[0m
+  ↳ db/schema.rb:23
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE  INDEX "index_authors_books_on_books_id" ON "authors_books" ("books_id")[0m
+  ↳ db/schema.rb:23
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "books"[0m
+  ↳ db/schema.rb:30
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "authors_id" integer, "categories_id" integer, "name" varchar DEFAULT '' NOT NULL, "description" varchar DEFAULT '' NOT NULL, "title_image" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:30
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE  INDEX "index_books_on_authors_id" ON "books" ("authors_id")[0m
+  ↳ db/schema.rb:30
+  [1m[35m (12.7ms)[0m  [1m[35mCREATE  INDEX "index_books_on_categories_id" ON "books" ("categories_id")[0m
+  ↳ db/schema.rb:30
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "books_categories"[0m
+  ↳ db/schema.rb:42
+  [1m[35m (10.7ms)[0m  [1m[35mCREATE TABLE "books_categories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "books_id" integer, "categories_id" integer)[0m
+  ↳ db/schema.rb:42
+  [1m[35m (10.7ms)[0m  [1m[35mCREATE  INDEX "index_books_categories_on_books_id" ON "books_categories" ("books_id")[0m
+  ↳ db/schema.rb:42
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE  INDEX "index_books_categories_on_categories_id" ON "books_categories" ("categories_id")[0m
+  ↳ db/schema.rb:42
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories"[0m
+  ↳ db/schema.rb:49
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "categories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar DEFAULT '' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:49
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments"[0m
+  ↳ db/schema.rb:55
+  [1m[35m (10.7ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "books_id" integer, "users_id" integer, "value" varchar DEFAULT '' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:55
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_books_id" ON "comments" ("books_id")[0m
+  ↳ db/schema.rb:55
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_users_id" ON "comments" ("users_id")[0m
+  ↳ db/schema.rb:55
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:65
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar DEFAULT '' NOT NULL, "email" varchar DEFAULT '' NOT NULL, "password" varchar DEFAULT '' NOT NULL, "phone_number" varchar DEFAULT '' NOT NULL, "admin" boolean DEFAULT 0, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:65
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/schema.rb:65
+  [1m[35m (9.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_phone_number" ON "users" ("phone_number")[0m
+  ↳ db/schema.rb:65
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (8.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220829134550)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (6.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220824124913),
+(20220824124443),
+(20220829133449),
+(20220822105243),
+(20220824123435),
+(20220824120902);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-08-30 09:30:28.618072"], ["updated_at", "2022-08-30 09:30:28.618072"]]
+  ↳ db/schema.rb:13
+  [1m[35m (9.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Update (0.9ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2022-08-30 09:30:28.640094"], ["key", "environment"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (6.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Action and Adventure"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Action and Adventure"], ["created_at", "2022-08-30 09:30:28.731804"], ["updated_at", "2022-08-30 09:30:28.731804"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (8.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Classics"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Classics"], ["created_at", "2022-08-30 09:30:28.752052"], ["updated_at", "2022-08-30 09:30:28.752052"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (6.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Detective and Mystery"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Detective and Mystery"], ["created_at", "2022-08-30 09:30:28.768969"], ["updated_at", "2022-08-30 09:30:28.768969"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (7.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Fantasy"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Fantasy"], ["created_at", "2022-08-30 09:30:28.788319"], ["updated_at", "2022-08-30 09:30:28.788319"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (29.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Historical Fiction"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Historical Fiction"], ["created_at", "2022-08-30 09:30:28.831473"], ["updated_at", "2022-08-30 09:30:28.831473"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (10.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Horror"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.7ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Horror"], ["created_at", "2022-08-30 09:30:28.857656"], ["updated_at", "2022-08-30 09:30:28.857656"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (6.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Literary Fiction"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Literary Fiction"], ["created_at", "2022-08-30 09:30:28.879674"], ["updated_at", "2022-08-30 09:30:28.879674"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (7.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Romance"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (0.9ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Romance"], ["created_at", "2022-08-30 09:30:28.897381"], ["updated_at", "2022-08-30 09:30:28.897381"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (6.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Other"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (0.9ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Other"], ["created_at", "2022-08-30 09:30:28.915994"], ["updated_at", "2022-08-30 09:30:28.915994"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (7.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (2.1ms)[0m  [1m[32mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "test"], ["created_at", "2022-08-30 09:33:51.913013"], ["updated_at", "2022-08-30 09:33:51.913013"]]
+  [1m[35m (8.9ms)[0m  [1m[36mcommit transaction[0m
+Started POST "/login" for ::1 at 2022-08-30 12:34:57 +0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"testtest@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"testtest@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "testtest@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:4
+Completed 200 OK in 30ms (Views: 0.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users" for ::1 at 2022-08-30 12:35:13 +0300
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for ::1 at 2022-08-30 12:35:48 +0300
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"testttest@gmail.com", "password"=>"[FILTERED]", "username"=>"test", "phone_number"=>"5328899504", "admin"=>"true"}}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:19
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "testttest@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "5328899504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "phone_number", "admin", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "test"], ["email", "testttest@gmail.com"], ["password", "mypassword2"], ["phone_number", "5328899504"], ["admin", 1], ["created_at", "2022-08-30 09:35:48.560519"], ["updated_at", "2022-08-30 09:35:48.560519"]]
+  ↳ app/controllers/users_controller.rb:19
+  [1m[35m (6.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:19
+Completed 200 OK in 71ms (Views: 1.1ms | ActiveRecord: 11.5ms)
+
+
+Started POST "/login" for ::1 at 2022-08-30 12:36:08 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"testttest@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"testttest@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "testttest@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:4
+Completed 200 OK in 37ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/books" for ::1 at 2022-08-30 12:36:44 +0300
+Processing by BooksController#create as */*
+  Parameters: {"book"=>{"category_id"=>7, "name"=>"looool", "descriprion"=>"testtestetsetsetstet"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:18
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 2.6ms)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: authors.user_id: SELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?):
+  
+app/controllers/books_controller.rb:18:in `create'
+Started POST "/books" for ::1 at 2022-08-30 12:37:50 +0300
+Processing by BooksController#create as */*
+  Parameters: {"book"=>{"category_id"=>7, "name"=>"looool", "descriprion"=>"testtestetsetsetstet"}}
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ (byebug):1
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "authors"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (11.8ms)[0m  [1m[35mCREATE TABLE "authors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "users_id" integer, "name" varchar DEFAULT '' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE  INDEX "index_authors_on_users_id" ON "authors" ("users_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "authors_books"[0m
+  ↳ db/schema.rb:23
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "authors_books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "books_id" integer, "authors_id" integer)[0m
+  ↳ db/schema.rb:23
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE  INDEX "index_authors_books_on_authors_id" ON "authors_books" ("authors_id")[0m
+  ↳ db/schema.rb:23
+  [1m[35m (10.8ms)[0m  [1m[35mCREATE  INDEX "index_authors_books_on_books_id" ON "authors_books" ("books_id")[0m
+  ↳ db/schema.rb:23
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "books"[0m
+  ↳ db/schema.rb:30
+  [1m[35m (9.4ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "authors_id" integer, "categories_id" integer, "name" varchar DEFAULT '' NOT NULL, "description" varchar DEFAULT '' NOT NULL, "title_image" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:30
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE  INDEX "index_books_on_authors_id" ON "books" ("authors_id")[0m
+  ↳ db/schema.rb:30
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE  INDEX "index_books_on_categories_id" ON "books" ("categories_id")[0m
+  ↳ db/schema.rb:30
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "books_categories"[0m
+  ↳ db/schema.rb:42
+  [1m[35m (16.3ms)[0m  [1m[35mCREATE TABLE "books_categories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "books_id" integer, "categories_id" integer)[0m
+  ↳ db/schema.rb:42
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE  INDEX "index_books_categories_on_books_id" ON "books_categories" ("books_id")[0m
+  ↳ db/schema.rb:42
+  [1m[35m (8.4ms)[0m  [1m[35mCREATE  INDEX "index_books_categories_on_categories_id" ON "books_categories" ("categories_id")[0m
+  ↳ db/schema.rb:42
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories"[0m
+  ↳ db/schema.rb:49
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "categories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar DEFAULT '' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:49
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments"[0m
+  ↳ db/schema.rb:55
+  [1m[35m (12.4ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "books_id" integer, "users_id" integer, "value" varchar DEFAULT '' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:55
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_books_id" ON "comments" ("books_id")[0m
+  ↳ db/schema.rb:55
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_users_id" ON "comments" ("users_id")[0m
+  ↳ db/schema.rb:55
+  [1m[35m (2.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:65
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar DEFAULT '' NOT NULL, "email" varchar DEFAULT '' NOT NULL, "password" varchar DEFAULT '' NOT NULL, "phone_number" varchar DEFAULT '' NOT NULL, "admin" boolean DEFAULT 0, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:65
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/schema.rb:65
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_phone_number" ON "users" ("phone_number")[0m
+  ↳ db/schema.rb:65
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (6.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220829134550)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (7.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220824124913),
+(20220824124443),
+(20220829133449),
+(20220822105243),
+(20220824123435),
+(20220824120902);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (2.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-08-30 09:40:47.352601"], ["updated_at", "2022-08-30 09:40:47.352601"]]
+  ↳ db/schema.rb:13
+  [1m[35m (7.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "authors"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (10.8ms)[0m  [1m[35mCREATE TABLE "authors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "users_id" integer, "name" varchar DEFAULT '' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (12.6ms)[0m  [1m[35mCREATE  INDEX "index_authors_on_users_id" ON "authors" ("users_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "authors_books"[0m
+  ↳ db/schema.rb:23
+  [1m[35m (9.7ms)[0m  [1m[35mCREATE TABLE "authors_books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "books_id" integer, "authors_id" integer)[0m
+  ↳ db/schema.rb:23
+  [1m[35m (11.3ms)[0m  [1m[35mCREATE  INDEX "index_authors_books_on_authors_id" ON "authors_books" ("authors_id")[0m
+  ↳ db/schema.rb:23
+  [1m[35m (11.8ms)[0m  [1m[35mCREATE  INDEX "index_authors_books_on_books_id" ON "authors_books" ("books_id")[0m
+  ↳ db/schema.rb:23
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "books"[0m
+  ↳ db/schema.rb:30
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "authors_id" integer, "categories_id" integer, "name" varchar DEFAULT '' NOT NULL, "description" varchar DEFAULT '' NOT NULL, "title_image" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:30
+  [1m[35m (9.8ms)[0m  [1m[35mCREATE  INDEX "index_books_on_authors_id" ON "books" ("authors_id")[0m
+  ↳ db/schema.rb:30
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE  INDEX "index_books_on_categories_id" ON "books" ("categories_id")[0m
+  ↳ db/schema.rb:30
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "books_categories"[0m
+  ↳ db/schema.rb:42
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE TABLE "books_categories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "books_id" integer, "categories_id" integer)[0m
+  ↳ db/schema.rb:42
+  [1m[35m (12.0ms)[0m  [1m[35mCREATE  INDEX "index_books_categories_on_books_id" ON "books_categories" ("books_id")[0m
+  ↳ db/schema.rb:42
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE  INDEX "index_books_categories_on_categories_id" ON "books_categories" ("categories_id")[0m
+  ↳ db/schema.rb:42
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories"[0m
+  ↳ db/schema.rb:49
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "categories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar DEFAULT '' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:49
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments"[0m
+  ↳ db/schema.rb:55
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "books_id" integer, "users_id" integer, "value" varchar DEFAULT '' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:55
+  [1m[35m (11.5ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_books_id" ON "comments" ("books_id")[0m
+  ↳ db/schema.rb:55
+  [1m[35m (10.4ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_users_id" ON "comments" ("users_id")[0m
+  ↳ db/schema.rb:55
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:65
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar DEFAULT '' NOT NULL, "email" varchar DEFAULT '' NOT NULL, "password" varchar DEFAULT '' NOT NULL, "phone_number" varchar DEFAULT '' NOT NULL, "admin" boolean DEFAULT 0, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:65
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/schema.rb:65
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_phone_number" ON "users" ("phone_number")[0m
+  ↳ db/schema.rb:65
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (8.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220829134550)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (6.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220824124913),
+(20220824124443),
+(20220829133449),
+(20220822105243),
+(20220824123435),
+(20220824120902);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (9.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (1.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-08-30 09:40:47.827394"], ["updated_at", "2022-08-30 09:40:47.827394"]]
+  ↳ db/schema.rb:13
+  [1m[35m (15.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Update (2.9ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2022-08-30 09:40:47.855360"], ["key", "environment"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (7.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Action and Adventure"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Action and Adventure"], ["created_at", "2022-08-30 09:40:47.943496"], ["updated_at", "2022-08-30 09:40:47.943496"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (7.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Classics"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (0.9ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Classics"], ["created_at", "2022-08-30 09:40:47.968032"], ["updated_at", "2022-08-30 09:40:47.968032"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (12.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Detective and Mystery"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (0.8ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Detective and Mystery"], ["created_at", "2022-08-30 09:40:47.995396"], ["updated_at", "2022-08-30 09:40:47.995396"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (7.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Fantasy"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Fantasy"], ["created_at", "2022-08-30 09:40:48.013136"], ["updated_at", "2022-08-30 09:40:48.013136"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (6.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Historical Fiction"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.6ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Historical Fiction"], ["created_at", "2022-08-30 09:40:48.032423"], ["updated_at", "2022-08-30 09:40:48.032423"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (8.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Horror"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (3.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Horror"], ["created_at", "2022-08-30 09:40:48.056933"], ["updated_at", "2022-08-30 09:40:48.056933"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (10.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Literary Fiction"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (2.6ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Literary Fiction"], ["created_at", "2022-08-30 09:40:48.077163"], ["updated_at", "2022-08-30 09:40:48.077163"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (6.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Romance"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Romance"], ["created_at", "2022-08-30 09:40:48.098597"], ["updated_at", "2022-08-30 09:40:48.098597"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (6.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Other"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Other"], ["created_at", "2022-08-30 09:40:48.115547"], ["updated_at", "2022-08-30 09:40:48.115547"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (5.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:19
+Completed 500 Internal Server Error in 185928ms (ActiveRecord: 11.5ms)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: authors.user_id: SELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?):
+  
+app/controllers/books_controller.rb:19:in `create'
+Started POST "/books" for ::1 at 2022-08-30 12:41:17 +0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by BooksController#create as */*
+  Parameters: {"book"=>{"category_id"=>7, "name"=>"looool", "descriprion"=>"testtestetsetsetstet"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 404 Not Found in 24ms (ActiveRecord: 3.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=1):
+  
+app/controllers/application_controller.rb:9:in `authentication'
+Started POST "/users" for ::1 at 2022-08-30 12:42:27 +0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"testttest@gmail.com", "password"=>"[FILTERED]", "username"=>"test", "phone_number"=>"5328899504", "admin"=>"true"}}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:19
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "testttest@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "5328899504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+  [1m[36mUser Create (2.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "phone_number", "admin", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "test"], ["email", "testttest@gmail.com"], ["password", "mypassword2"], ["phone_number", "5328899504"], ["admin", 1], ["created_at", "2022-08-30 09:42:27.327720"], ["updated_at", "2022-08-30 09:42:27.327720"]]
+  ↳ app/controllers/users_controller.rb:19
+  [1m[35m (8.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:19
+Completed 200 OK in 74ms (Views: 1.1ms | ActiveRecord: 16.5ms)
+
+
+Started POST "/login" for ::1 at 2022-08-30 12:42:32 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"testttest@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"testttest@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "testttest@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:4
+Completed 200 OK in 7ms (Views: 0.5ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/books" for ::1 at 2022-08-30 12:42:38 +0300
+Processing by BooksController#create as */*
+  Parameters: {"book"=>{"category_id"=>7, "name"=>"looool", "descriprion"=>"testtestetsetsetstet"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mAuthor Load (1.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ (byebug):1
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:19
+Completed 500 Internal Server Error in 91542ms (ActiveRecord: 4.2ms)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: authors.user_id: SELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?):
+  
+app/controllers/books_controller.rb:19:in `create'
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (1.4ms)[0m  [1m[32mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "test"], ["created_at", "2022-08-30 09:44:40.825972"], ["updated_at", "2022-08-30 09:44:40.825972"]]
+  [1m[35m (11.1ms)[0m  [1m[36mcommit transaction[0m
+Started POST "/books" for ::1 at 2022-08-30 12:44:57 +0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by BooksController#create as */*
+  Parameters: {"book"=>{"category_id"=>7, "name"=>"looool", "descriprion"=>"testtestetsetsetstet"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ (byebug):1
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+Migrating to CreateUsersTable (20220822105243)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar DEFAULT '' NOT NULL, "email" varchar DEFAULT '' NOT NULL, "password" varchar DEFAULT '' NOT NULL, "phone_number" varchar DEFAULT '' NOT NULL, "admin" boolean DEFAULT 0, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220822105243_create_users_table.rb:3
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_phone_number" ON "users" ("phone_number")[0m
+  ↳ db/migrate/20220822105243_create_users_table.rb:11
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20220822105243_create_users_table.rb:12
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220822105243"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (11.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+Migrating to CreateBooksTable (20220824120902)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "author_id" integer, "category_id" integer, "name" varchar DEFAULT '' NOT NULL, "description" varchar DEFAULT '' NOT NULL, "title_image" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_53d51ce16a"
+FOREIGN KEY ("author_id")
+  REFERENCES "authors" ("id")
+, CONSTRAINT "fk_rails_1e86d9c4ec"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+)[0m
+  ↳ db/migrate/20220824120902_create_books_table.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX "index_books_on_author_id" ON "books" ("author_id")[0m
+  ↳ db/migrate/20220824120902_create_books_table.rb:3
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX "index_books_on_category_id" ON "books" ("category_id")[0m
+  ↳ db/migrate/20220824120902_create_books_table.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220824120902"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (8.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+Migrating to CreateAuthorsTable (20220824123435)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "authors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "name" varchar DEFAULT '' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_46e884287b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20220824123435_create_authors_table.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX "index_authors_on_user_id" ON "authors" ("user_id")[0m
+  ↳ db/migrate/20220824123435_create_authors_table.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220824123435"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (7.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+Migrating to CreateCategoriesTable (20220824124443)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "categories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar DEFAULT '' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220824124443_create_categories_table.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220824124443"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (9.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+Migrating to CreateCommentsTable (20220824124913)
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "book_id" integer, "user_id" integer, "value" varchar DEFAULT '' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_a98e86e5b9"
+FOREIGN KEY ("book_id")
+  REFERENCES "books" ("id")
+, CONSTRAINT "fk_rails_03de2dc08c"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20220824124913_create_comments_table.rb:3
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_book_id" ON "comments" ("book_id")[0m
+  ↳ db/migrate/20220824124913_create_comments_table.rb:3
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  ↳ db/migrate/20220824124913_create_comments_table.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220824124913"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (8.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+Migrating to BooksCategories (20220829133449)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "books_categories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "book_id" integer, "category_id" integer, CONSTRAINT "fk_rails_4b64804a3a"
+FOREIGN KEY ("book_id")
+  REFERENCES "books" ("id")
+, CONSTRAINT "fk_rails_426cc1dbb3"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+)[0m
+  ↳ db/migrate/20220829133449_books_categories.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX "index_books_categories_on_book_id" ON "books_categories" ("book_id")[0m
+  ↳ db/migrate/20220829133449_books_categories.rb:3
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX "index_books_categories_on_category_id" ON "books_categories" ("category_id")[0m
+  ↳ db/migrate/20220829133449_books_categories.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829133449"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (8.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+Migrating to AuthorsBooks (20220829134550)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "authors_books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "book_id" integer, "author_id" integer, CONSTRAINT "fk_rails_f7acfea2b6"
+FOREIGN KEY ("book_id")
+  REFERENCES "books" ("id")
+, CONSTRAINT "fk_rails_d4a76af72d"
+FOREIGN KEY ("author_id")
+  REFERENCES "authors" ("id")
+)[0m
+  ↳ db/migrate/20220829134550_authors_books.rb:3
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX "index_authors_books_on_book_id" ON "authors_books" ("book_id")[0m
+  ↳ db/migrate/20220829134550_authors_books.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE  INDEX "index_authors_books_on_author_id" ON "authors_books" ("author_id")[0m
+  ↳ db/migrate/20220829134550_authors_books.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829134550"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (9.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (2.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-08-30 09:54:16.853755"], ["updated_at", "2022-08-30 09:54:16.853755"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (13.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Action and Adventure"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Action and Adventure"], ["created_at", "2022-08-30 09:54:27.437168"], ["updated_at", "2022-08-30 09:54:27.437168"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Classics"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (0.9ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Classics"], ["created_at", "2022-08-30 09:54:27.483898"], ["updated_at", "2022-08-30 09:54:27.483898"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (5.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Detective and Mystery"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Detective and Mystery"], ["created_at", "2022-08-30 09:54:27.500713"], ["updated_at", "2022-08-30 09:54:27.500713"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Fantasy"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (3.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Fantasy"], ["created_at", "2022-08-30 09:54:27.521279"], ["updated_at", "2022-08-30 09:54:27.521279"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (8.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Historical Fiction"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Historical Fiction"], ["created_at", "2022-08-30 09:54:27.546208"], ["updated_at", "2022-08-30 09:54:27.546208"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (5.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (3.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Horror"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Horror"], ["created_at", "2022-08-30 09:54:27.564947"], ["updated_at", "2022-08-30 09:54:27.564947"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (5.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Literary Fiction"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Literary Fiction"], ["created_at", "2022-08-30 09:54:27.584366"], ["updated_at", "2022-08-30 09:54:27.584366"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (6.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Romance"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.8ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Romance"], ["created_at", "2022-08-30 09:54:27.603398"], ["updated_at", "2022-08-30 09:54:27.603398"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (7.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Other"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Other"], ["created_at", "2022-08-30 09:54:27.626606"], ["updated_at", "2022-08-30 09:54:27.626606"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (2.1ms)[0m  [1m[32mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "test"], ["created_at", "2022-08-30 09:55:07.544058"], ["updated_at", "2022-08-30 09:55:07.544058"]]
+  [1m[35m (9.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mAuthor Load (1.8ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:19
+Completed 500 Internal Server Error in 620192ms (ActiveRecord: 9.9ms)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: authors.user_id: SELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?):
+  
+app/controllers/books_controller.rb:19:in `create'
+Started POST "/users" for ::1 at 2022-08-30 12:55:33 +0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"testttest@gmail.com", "password"=>"[FILTERED]", "username"=>"test", "phone_number"=>"5328899504", "admin"=>"true"}}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:19
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "testttest@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "5328899504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+  [1m[36mUser Create (2.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "phone_number", "admin", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "test"], ["email", "testttest@gmail.com"], ["password", "mypassword2"], ["phone_number", "5328899504"], ["admin", 1], ["created_at", "2022-08-30 09:55:33.364706"], ["updated_at", "2022-08-30 09:55:33.364706"]]
+  ↳ app/controllers/users_controller.rb:19
+  [1m[35m (8.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:19
+Completed 200 OK in 67ms (Views: 1.2ms | ActiveRecord: 14.6ms)
+
+
+Started POST "/login" for ::1 at 2022-08-30 12:55:37 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"testttest@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"testttest@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "testttest@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:4
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/books" for ::1 at 2022-08-30 12:55:43 +0300
+Processing by BooksController#create as */*
+  Parameters: {"book"=>{"category_id"=>7, "name"=>"looool", "descriprion"=>"testtestetsetsetstet"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ (byebug):1
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ (byebug):1
+  [1m[36mAuthor Create (1.5ms)[0m  [1m[32mINSERT INTO "authors" ("user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["name", "test"], ["created_at", "2022-08-30 09:56:06.044242"], ["updated_at", "2022-08-30 09:56:06.044242"]]
+  ↳ (byebug):1
+  [1m[35m (118.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ (byebug):1
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:19
+Completed 404 Not Found in 51284ms (ActiveRecord: 130.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category without an ID):
+  
+app/controllers/books_controller.rb:22:in `create'
+Started POST "/books" for ::1 at 2022-08-30 12:56:50 +0300
+Processing by BooksController#create as */*
+  Parameters: {"book"=>{"category_id"=>7, "name"=>"looool", "descriprion"=>"testtestetsetsetstet"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mAuthor Load (1.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:18
+Completed 404 Not Found in 115ms (ActiveRecord: 10.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category without an ID):
+  
+app/controllers/books_controller.rb:21:in `create'
+Started GET "/categories" for ::1 at 2022-08-30 12:57:07 +0300
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:5
+Completed 200 OK in 25ms (Views: 19.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/books" for ::1 at 2022-08-30 12:58:16 +0300
+Processing by BooksController#create as */*
+  Parameters: {"book"=>{"category_id"=>7, "name"=>"looool", "descriprion"=>"testtestetsetsetstet"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:18
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/controllers/books_controller.rb:22
+Completed 404 Not Found in 246729ms (ActiveRecord: 7.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category without an ID):
+  
+app/controllers/books_controller.rb:22:in `create'
+Started POST "/books" for ::1 at 2022-08-30 13:02:38 +0300
+Processing by BooksController#create as */*
+  Parameters: {"book"=>{"category_id"=>7, "name"=>"looool", "descriprion"=>"testtestetsetsetstet"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:18
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:22
+Unpermitted parameter: :category_id
+Completed 500 Internal Server Error in 176ms (ActiveRecord: 14.5ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'descriprion' for Book.):
+  
+app/controllers/books_controller.rb:23:in `create'
+Started POST "/books" for ::1 at 2022-08-30 13:03:26 +0300
+Processing by BooksController#create as */*
+  Parameters: {"book"=>{"category_id"=>7, "name"=>"looool", "description"=>"testtestetsetsetstet"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:18
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:22
+Unpermitted parameter: :category_id
+Completed 500 Internal Server Error in 162ms (ActiveRecord: 12.0ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'user_id' for Book.):
+  
+app/controllers/books_controller.rb:23:in `create'
+Started POST "/books" for ::1 at 2022-08-30 13:04:16 +0300
+Processing by BooksController#create as */*
+  Parameters: {"book"=>{"category_id"=>7, "name"=>"looool", "description"=>"testtestetsetsetstet"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:18
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:22
+Unpermitted parameter: :category_id
+Completed 500 Internal Server Error in 163ms (ActiveRecord: 12.4ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'category' for Book.):
+  
+app/controllers/books_controller.rb:23:in `create'
+Started POST "/books" for ::1 at 2022-08-30 13:08:22 +0300
+Processing by BooksController#create as */*
+  Parameters: {"book"=>{"category_id"=>7, "name"=>"looool", "description"=>"testtestetsetsetstet"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:18
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:22
+Unpermitted parameter: :category_id
+Unpermitted parameter: :category_id
+Completed 500 Internal Server Error in 135846ms (ActiveRecord: 17.8ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'category' for Book.):
+  
+app/controllers/books_controller.rb:24:in `create'
+Started POST "/books" for ::1 at 2022-08-30 13:10:43 +0300
+Processing by BooksController#create as */*
+  Parameters: {"book"=>{"category_id"=>7, "name"=>"looool", "description"=>"testtestetsetsetstet"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:18
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:22
+Unpermitted parameter: :category_id
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:27
+  [1m[36mBook Create (1.7ms)[0m  [1m[32mINSERT INTO "books" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "looool"], ["description", "testtestetsetsetstet"], ["created_at", "2022-08-30 10:10:43.928271"], ["updated_at", "2022-08-30 10:10:43.928271"]]
+  ↳ app/controllers/books_controller.rb:27
+  [1m[36mBook::HABTM_Categories Create (1.2ms)[0m  [1m[32mINSERT INTO "books_categories" ("book_id", "category_id") VALUES (?, ?)[0m  [["book_id", 1], ["category_id", 7]]
+  ↳ app/controllers/books_controller.rb:27
+  [1m[36mBook::HABTM_Authors Create (0.7ms)[0m  [1m[32mINSERT INTO "authors_books" ("book_id", "author_id") VALUES (?, ?)[0m  [["book_id", 1], ["author_id", 2]]
+  ↳ app/controllers/books_controller.rb:27
+  [1m[35m (6.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:27
+Completed 201 Created in 248ms (Views: 2.5ms | ActiveRecord: 33.0ms)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+Migrating to ChangeBooks (20220830102409)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Create (2.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220830102409"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (10.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+Migrating to ChangeBooks (20220830102409)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (10.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+Migrating to CreateUsersTable (20220822105243)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar DEFAULT '' NOT NULL, "email" varchar DEFAULT '' NOT NULL, "password" varchar DEFAULT '' NOT NULL, "phone_number" varchar DEFAULT '' NOT NULL, "admin" boolean DEFAULT 0, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220822105243_create_users_table.rb:3
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_phone_number" ON "users" ("phone_number")[0m
+  ↳ db/migrate/20220822105243_create_users_table.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20220822105243_create_users_table.rb:12
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220822105243"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (8.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+Migrating to CreateBooksTable (20220824120902)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar DEFAULT '' NOT NULL, "description" varchar DEFAULT '' NOT NULL, "title_image" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220824120902_create_books_table.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220824120902"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (7.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+Migrating to CreateAuthorsTable (20220824123435)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "authors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "name" varchar DEFAULT '' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_46e884287b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20220824123435_create_authors_table.rb:3
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX "index_authors_on_user_id" ON "authors" ("user_id")[0m
+  ↳ db/migrate/20220824123435_create_authors_table.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220824123435"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (9.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+Migrating to CreateCategoriesTable (20220824124443)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "categories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar DEFAULT '' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220824124443_create_categories_table.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220824124443"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (7.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+Migrating to CreateCommentsTable (20220824124913)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "book_id" integer, "user_id" integer, "value" varchar DEFAULT '' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_a98e86e5b9"
+FOREIGN KEY ("book_id")
+  REFERENCES "books" ("id")
+, CONSTRAINT "fk_rails_03de2dc08c"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20220824124913_create_comments_table.rb:3
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_book_id" ON "comments" ("book_id")[0m
+  ↳ db/migrate/20220824124913_create_comments_table.rb:3
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  ↳ db/migrate/20220824124913_create_comments_table.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220824124913"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (8.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+Migrating to BooksCategories (20220829133449)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "books_categories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "book_id" integer, "category_id" integer, CONSTRAINT "fk_rails_4b64804a3a"
+FOREIGN KEY ("book_id")
+  REFERENCES "books" ("id")
+, CONSTRAINT "fk_rails_426cc1dbb3"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+)[0m
+  ↳ db/migrate/20220829133449_books_categories.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX "index_books_categories_on_book_id" ON "books_categories" ("book_id")[0m
+  ↳ db/migrate/20220829133449_books_categories.rb:3
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX "index_books_categories_on_category_id" ON "books_categories" ("category_id")[0m
+  ↳ db/migrate/20220829133449_books_categories.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829133449"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (7.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+Migrating to AuthorsBooks (20220829134550)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "authors_books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "book_id" integer, "author_id" integer, CONSTRAINT "fk_rails_f7acfea2b6"
+FOREIGN KEY ("book_id")
+  REFERENCES "books" ("id")
+, CONSTRAINT "fk_rails_d4a76af72d"
+FOREIGN KEY ("author_id")
+  REFERENCES "authors" ("id")
+)[0m
+  ↳ db/migrate/20220829134550_authors_books.rb:3
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX "index_authors_books_on_book_id" ON "authors_books" ("book_id")[0m
+  ↳ db/migrate/20220829134550_authors_books.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX "index_authors_books_on_author_id" ON "authors_books" ("author_id")[0m
+  ↳ db/migrate/20220829134550_authors_books.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829134550"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (10.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-08-30 10:36:27.756203"], ["updated_at", "2022-08-30 10:36:27.756203"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (7.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Action and Adventure"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (2.1ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Action and Adventure"], ["created_at", "2022-08-30 10:36:51.780007"], ["updated_at", "2022-08-30 10:36:51.780007"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (9.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Classics"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (4.6ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Classics"], ["created_at", "2022-08-30 10:36:51.804414"], ["updated_at", "2022-08-30 10:36:51.804414"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (15.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Detective and Mystery"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.8ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (2.6ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Detective and Mystery"], ["created_at", "2022-08-30 10:36:51.857586"], ["updated_at", "2022-08-30 10:36:51.857586"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (8.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Fantasy"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Fantasy"], ["created_at", "2022-08-30 10:36:51.878575"], ["updated_at", "2022-08-30 10:36:51.878575"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (12.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Historical Fiction"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (2.6ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Historical Fiction"], ["created_at", "2022-08-30 10:36:51.909993"], ["updated_at", "2022-08-30 10:36:51.909993"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (10.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Horror"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.8ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Horror"], ["created_at", "2022-08-30 10:36:51.933651"], ["updated_at", "2022-08-30 10:36:51.933651"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (6.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Literary Fiction"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (1.8ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Literary Fiction"], ["created_at", "2022-08-30 10:36:51.951515"], ["updated_at", "2022-08-30 10:36:51.951515"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (6.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Romance"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (0.8ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Romance"], ["created_at", "2022-08-30 10:36:51.981288"], ["updated_at", "2022-08-30 10:36:51.981288"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (10.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Other"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCategory Create (0.9ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Other"], ["created_at", "2022-08-30 10:36:52.002687"], ["updated_at", "2022-08-30 10:36:52.002687"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (8.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (1.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "test"], ["created_at", "2022-08-30 10:37:43.698103"], ["updated_at", "2022-08-30 10:37:43.698103"]]
+  [1m[35m (7.7ms)[0m  [1m[36mcommit transaction[0m
+Started POST "/users" for ::1 at 2022-08-30 13:38:33 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"testttest@gmail.com", "password"=>"[FILTERED]", "username"=>"test", "phone_number"=>"5328899504", "admin"=>"true"}}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:19
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "testttest@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "5328899504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+  [1m[36mUser Create (3.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "phone_number", "admin", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "test"], ["email", "testttest@gmail.com"], ["password", "mypassword2"], ["phone_number", "5328899504"], ["admin", 1], ["created_at", "2022-08-30 10:38:34.020878"], ["updated_at", "2022-08-30 10:38:34.020878"]]
+  ↳ app/controllers/users_controller.rb:19
+  [1m[35m (10.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:19
+Completed 200 OK in 63ms (Views: 1.3ms | ActiveRecord: 17.8ms)
+
+
+Started POST "/login" for ::1 at 2022-08-30 13:38:37 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"testttest@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"testttest@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "testttest@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:4
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/books" for ::1 at 2022-08-30 13:38:44 +0300
+Processing by BooksController#create as */*
+  Parameters: {"book"=>{"category_id"=>7, "name"=>"looool", "description"=>"testtestetsetsetstet"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:18
+  [1m[36mAuthor Create (3.4ms)[0m  [1m[32mINSERT INTO "authors" ("user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["name", "test"], ["created_at", "2022-08-30 10:38:44.699163"], ["updated_at", "2022-08-30 10:38:44.699163"]]
+  ↳ app/controllers/books_controller.rb:18
+  [1m[35m (6.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:18
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:22
+Unpermitted parameter: :category_id
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:27
+  [1m[36mBook Create (3.3ms)[0m  [1m[32mINSERT INTO "books" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "looool"], ["description", "testtestetsetsetstet"], ["created_at", "2022-08-30 10:38:44.886559"], ["updated_at", "2022-08-30 10:38:44.886559"]]
+  ↳ app/controllers/books_controller.rb:27
+  [1m[36mBook::HABTM_Categories Create (1.5ms)[0m  [1m[32mINSERT INTO "books_categories" ("book_id", "category_id") VALUES (?, ?)[0m  [["book_id", 1], ["category_id", 7]]
+  ↳ app/controllers/books_controller.rb:27
+  [1m[36mBook::HABTM_Authors Create (0.9ms)[0m  [1m[32mINSERT INTO "authors_books" ("book_id", "author_id") VALUES (?, ?)[0m  [["book_id", 1], ["author_id", 2]]
+  ↳ app/controllers/books_controller.rb:27
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:27
+Completed 201 Created in 262ms (Views: 2.4ms | ActiveRecord: 37.1ms)
+
+
+Started POST "/login" for ::1 at 2022-08-30 21:22:40 +0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"testttest@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"testttest@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "testttest@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:4
+Completed 200 OK in 65ms (Views: 0.7ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/books" for ::1 at 2022-08-30 21:22:51 +0300
+Processing by BooksController#create as */*
+  Parameters: {"book"=>{"category_id"=>7, "name"=>"looool", "description"=>"testtestetsetsetstet"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:18
+  [1m[36mCategory Load (1.8ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:22
+Unpermitted parameter: :category_id
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:27
+  [1m[36mBook Create (1.7ms)[0m  [1m[32mINSERT INTO "books" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "looool"], ["description", "testtestetsetsetstet"], ["created_at", "2022-08-30 18:22:52.007928"], ["updated_at", "2022-08-30 18:22:52.007928"]]
+  ↳ app/controllers/books_controller.rb:27
+  [1m[36mBook::HABTM_Categories Create (1.7ms)[0m  [1m[32mINSERT INTO "books_categories" ("book_id", "category_id") VALUES (?, ?)[0m  [["book_id", 2], ["category_id", 7]]
+  ↳ app/controllers/books_controller.rb:27
+  [1m[36mBook::HABTM_Authors Create (0.7ms)[0m  [1m[32mINSERT INTO "authors_books" ("book_id", "author_id") VALUES (?, ?)[0m  [["book_id", 2], ["author_id", 2]]
+  ↳ app/controllers/books_controller.rb:27
+  [1m[35m (13.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:27
+Completed 201 Created in 257ms (Views: 2.0ms | ActiveRecord: 32.2ms)
+
+
