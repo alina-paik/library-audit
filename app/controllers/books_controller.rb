@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class BooksController < ApplicationController
   before_action :authentication, except: %i[index show]
-  before_action :set_book, only: %i[show]
+  before_action :set_book, only: %i[show update destroy]
 
   # GET /books
   def index
@@ -21,24 +23,39 @@ class BooksController < ApplicationController
 
     category = Category.find(params[:book][:category_id])
 
-    @book = Book.new(book_create_params)
+    @book = Book.new(book_params)
     @book.categories << category
     @book.authors << author
     if @book.save
-         render json: @book, status: :created, location: @book
+      render json: @book, status: :created
     else
-         render json: @book.errors, status: :unprocessable_entity
+      render json: @book.errors, status: :unprocessable_entity
     end
   end
 
-  
+  # PUT /books/ :id
+  def update
+    authorize! @book
+    if @book.update(book_params)
+      render json: @book
+    else
+      render json: @book.errors, status: :unprocessable_entity
+    end
+  end
+
+  # DEL /books/ :id
+  def destroy
+    authorize! @book
+    @book.destroy
+  end
+
   private
 
   def set_book
-      @book = Book.find_by(id: params[:id])
+    @book = Book.find_by(id: params[:id])
   end
 
-  def book_create_params
-      params.require(:book).permit(:name, :description)
+  def book_params
+    params.require(:book).permit(:name, :description)
   end
 end

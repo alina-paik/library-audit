@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class CreateCategoriesTable < ActiveRecord::Migration[5.2]
   def change
     create_table :categories do |t|
-      t.string :name, null: false, default: ""
+      t.string :name, null: false, default: ''
       t.timestamps null: false
     end
   end
