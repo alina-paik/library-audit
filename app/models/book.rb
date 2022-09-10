@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class Book < ApplicationRecord
-  has_many :comment
+  has_many :comments
   has_and_belongs_to_many :categories
   has_and_belongs_to_many :authors
 

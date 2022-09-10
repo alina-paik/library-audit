@@ -1,5 +1,6 @@
-class AuthorsController < ApplicationController
+# frozen_string_literal: true
 
+class AuthorsController < ApplicationController
   # GET /authors
   def index
     authors = Authors.all
