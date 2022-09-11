@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class AuthorsController < ApplicationController
-  # GET /authors
+  # GET /authors?page=:page
   def index
-    authors = Authors.all
+    authors = Author.page(params[:page])
     render json: authors, status: :ok
   end
 
