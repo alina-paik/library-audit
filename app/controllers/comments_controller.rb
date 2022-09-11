@@ -4,9 +4,9 @@ class CommentsController < ApplicationController
   before_action :authentication, except: %i[index]
   before_action :set_book
 
-  # GET /books/:id/comments
+  # GET /books/:id/comments?page=:page
   def index
-    comments = @book.comments
+    comments = Comment.where(book_id: @book.id).page(params[:page])
     render json: comments, status: :ok
   end
 

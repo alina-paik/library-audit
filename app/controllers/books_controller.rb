@@ -4,9 +4,9 @@ class BooksController < ApplicationController
   before_action :authentication, except: %i[index show]
   before_action :set_book, only: %i[show update destroy]
 
-  # GET /books
+  # GET /books?page=:page
   def index
-    @books = Book.all
+    @books = Book.page(params[:page])
     render json: @books, status: :ok
   end
 

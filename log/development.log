@@ -15182,3 +15182,115 @@ Processing by AuthenticationController#logout as */*
 Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/authors?page=1" for ::1 at 2022-09-11 20:35:21 +0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by AuthorsController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[36mAuthor Load (1.8ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" LIMIT ? OFFSET ?[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/controllers/authors_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (16.75ms)
+Completed 200 OK in 168ms (Views: 102.0ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/authors/1" for ::1 at 2022-09-11 20:37:19 +0300
+Processing by AuthorsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:12
+[active_model_serializers] Rendered AuthorSerializer with ActiveModelSerializers::Adapter::Attributes (1.09ms)
+Completed 200 OK in 43ms (Views: 3.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/books?page=1" for ::1 at 2022-09-11 20:38:34 +0300
+Processing by BooksController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  "books".* FROM "books" LIMIT ? OFFSET ?[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/controllers/books_controller.rb:10
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (28.31ms)
+Completed 500 Internal Server Error in 116ms (ActiveRecord: 6.9ms)
+
+
+  
+NoMethodError (undefined method `author_id' for #<Book:0x00005639a01efe08>
+Did you mean?  author_ids
+               author_ids=
+               authors
+               authors=):
+  
+app/controllers/books_controller.rb:10:in `index'
+Started GET "/books?page=1" for ::1 at 2022-09-11 20:39:27 +0300
+Processing by BooksController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  "books".* FROM "books" LIMIT ? OFFSET ?[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/controllers/books_controller.rb:10
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.09ms)
+Completed 200 OK in 93ms (Views: 49.2ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/books?page=1" for ::1 at 2022-09-11 20:40:32 +0300
+Processing by BooksController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  "books".* FROM "books" LIMIT ? OFFSET ?[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/controllers/books_controller.rb:10
+[active_model_serializers]   [1m[36mAuthor Load (4.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+[active_model_serializers]   ↳ app/controllers/books_controller.rb:10
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (102.15ms)
+Completed 200 OK in 244ms (Views: 192.2ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/categories?page=1" for ::1 at 2022-09-11 20:41:57 +0300
+Processing by CategoriesController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[36mCategory Load (4.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" LIMIT ? OFFSET ?[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/controllers/categories_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.39ms)
+Completed 200 OK in 74ms (Views: 35.9ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/books/1/comments?page=1" for ::1 at 2022-09-11 20:45:55 +0300
+Processing by CommentsController#index as */*
+  Parameters: {"page"=>"1", "id"=>"1"}
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:44
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."book_id" = ? LIMIT ? OFFSET ?[0m  [["book_id", 1], ["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/controllers/comments_controller.rb:10
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.59ms)
+Completed 200 OK in 130ms (Views: 36.5ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/books?page=1" for ::1 at 2022-09-11 20:47:37 +0300
+Processing by BooksController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  "books".* FROM "books" LIMIT ? OFFSET ?[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/controllers/books_controller.rb:10
+[active_model_serializers]   [1m[36mAuthor Load (2.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+[active_model_serializers]   ↳ app/controllers/books_controller.rb:10
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (97.27ms)
+Completed 200 OK in 111ms (Views: 100.4ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/books?page=1" for ::1 at 2022-09-11 20:47:50 +0300
+Processing by BooksController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  "books".* FROM "books" LIMIT ? OFFSET ?[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/controllers/books_controller.rb:10
+[active_model_serializers]   [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+[active_model_serializers]   ↳ app/controllers/books_controller.rb:10
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (10.78ms)
+Completed 200 OK in 18ms (Views: 14.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/books?page=1" for ::1 at 2022-09-11 20:48:19 +0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by BooksController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  "books".* FROM "books" LIMIT ? OFFSET ?[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/controllers/books_controller.rb:10
+[active_model_serializers]   [1m[36mAuthor Load (1.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+[active_model_serializers]   ↳ app/controllers/books_controller.rb:10
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (135.17ms)
+Completed 200 OK in 285ms (Views: 215.1ms | ActiveRecord: 10.6ms)
+
+
