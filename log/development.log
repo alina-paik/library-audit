@@ -15294,3 +15294,253 @@ Processing by BooksController#index as */*
 Completed 200 OK in 285ms (Views: 215.1ms | ActiveRecord: 10.6ms)
 
 
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+Migrating to InviteAuthor (20220914145332)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+Migrating to InviteAuthor (20220914145332)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (2.3ms)[0m  [1m[35mALTER TABLE "authors" ADD "invite_token" varchar[0m
+  ↳ db/migrate/20220914145332_invite_author.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220914145332"]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (8.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/bin/rake:23
+Started POST "/authors/invite" for ::1 at 2022-09-14 18:27:20 +0300
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "author_id": 2,
+    "email": test1@gmail.com
+}
+  
+ActionDispatch::Http::Parameters::ParseError (859: unexpected token at '{
+    "author_id": 2,
+    "email": test1@gmail.com
+}'):
+  
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/http/parameters.rb:117:in `rescue in parse_formatted_parameters'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/http/parameters.rb:111:in `parse_formatted_parameters'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/http/request.rb:381:in `block in POST'
+vendor/bundle/ruby/2.7.0/gems/rack-2.2.4/lib/rack/request.rb:69:in `fetch'
+vendor/bundle/ruby/2.7.0/gems/rack-2.2.4/lib/rack/request.rb:69:in `fetch_header'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/http/request.rb:380:in `POST'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/http/parameters.rb:55:in `parameters'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_controller/metal/params_wrapper.rb:290:in `_wrapper_enabled?'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/abstract_controller/base.rb:134:in `process'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_controller/metal.rb:191:in `dispatch'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_controller/metal.rb:252:in `dispatch'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/routing/route_set.rb:34:in `serve'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/journey/router.rb:52:in `block in serve'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/journey/router.rb:35:in `each'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/journey/router.rb:35:in `serve'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/routing/route_set.rb:840:in `call'
+vendor/bundle/ruby/2.7.0/gems/rack-2.2.4/lib/rack/etag.rb:27:in `call'
+vendor/bundle/ruby/2.7.0/gems/rack-2.2.4/lib/rack/conditional_get.rb:40:in `call'
+vendor/bundle/ruby/2.7.0/gems/rack-2.2.4/lib/rack/head.rb:12:in `call'
+vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/migration.rb:559:in `call'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+vendor/bundle/ruby/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:98:in `run_callbacks'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/middleware/executor.rb:14:in `call'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+vendor/bundle/ruby/2.7.0/gems/railties-5.2.8.1/lib/rails/rack/logger.rb:38:in `call_app'
+vendor/bundle/ruby/2.7.0/gems/railties-5.2.8.1/lib/rails/rack/logger.rb:26:in `block in call'
+vendor/bundle/ruby/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+vendor/bundle/ruby/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:28:in `tagged'
+vendor/bundle/ruby/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:71:in `tagged'
+vendor/bundle/ruby/2.7.0/gems/railties-5.2.8.1/lib/rails/rack/logger.rb:26:in `call'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/middleware/request_id.rb:27:in `call'
+vendor/bundle/ruby/2.7.0/gems/rack-2.2.4/lib/rack/runtime.rb:22:in `call'
+vendor/bundle/ruby/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/middleware/executor.rb:14:in `call'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/middleware/static.rb:127:in `call'
+vendor/bundle/ruby/2.7.0/gems/rack-2.2.4/lib/rack/sendfile.rb:110:in `call'
+vendor/bundle/ruby/2.7.0/gems/railties-5.2.8.1/lib/rails/engine.rb:524:in `call'
+vendor/bundle/ruby/2.7.0/gems/puma-3.12.6/lib/puma/configuration.rb:227:in `call'
+vendor/bundle/ruby/2.7.0/gems/puma-3.12.6/lib/puma/server.rb:706:in `handle_request'
+vendor/bundle/ruby/2.7.0/gems/puma-3.12.6/lib/puma/server.rb:476:in `process_client'
+vendor/bundle/ruby/2.7.0/gems/puma-3.12.6/lib/puma/server.rb:334:in `block in run'
+vendor/bundle/ruby/2.7.0/gems/puma-3.12.6/lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/authors?page=1" for ::1 at 2022-09-14 18:28:00 +0300
+Processing by AuthorsController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[36mAuthor Load (1.4ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" LIMIT ? OFFSET ?[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/controllers/authors_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (18.79ms)
+Completed 200 OK in 203ms (Views: 194.4ms | ActiveRecord: 5.4ms)
+
+
+Started POST "/authors/invite" for ::1 at 2022-09-14 18:28:38 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "author_id": 2,
+    "email": test1@gmail.com
+}
+  
+ActionDispatch::Http::Parameters::ParseError (859: unexpected token at '{
+    "author_id": 2,
+    "email": test1@gmail.com
+}'):
+  
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/http/parameters.rb:117:in `rescue in parse_formatted_parameters'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/http/parameters.rb:111:in `parse_formatted_parameters'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/http/request.rb:381:in `block in POST'
+vendor/bundle/ruby/2.7.0/gems/rack-2.2.4/lib/rack/request.rb:69:in `fetch'
+vendor/bundle/ruby/2.7.0/gems/rack-2.2.4/lib/rack/request.rb:69:in `fetch_header'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/http/request.rb:380:in `POST'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/http/parameters.rb:55:in `parameters'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_controller/metal/params_wrapper.rb:290:in `_wrapper_enabled?'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/abstract_controller/base.rb:134:in `process'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_controller/metal.rb:191:in `dispatch'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_controller/metal.rb:252:in `dispatch'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/routing/route_set.rb:34:in `serve'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/journey/router.rb:52:in `block in serve'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/journey/router.rb:35:in `each'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/journey/router.rb:35:in `serve'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/routing/route_set.rb:840:in `call'
+vendor/bundle/ruby/2.7.0/gems/rack-2.2.4/lib/rack/etag.rb:27:in `call'
+vendor/bundle/ruby/2.7.0/gems/rack-2.2.4/lib/rack/conditional_get.rb:40:in `call'
+vendor/bundle/ruby/2.7.0/gems/rack-2.2.4/lib/rack/head.rb:12:in `call'
+vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/migration.rb:559:in `call'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+vendor/bundle/ruby/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:98:in `run_callbacks'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/middleware/executor.rb:14:in `call'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+vendor/bundle/ruby/2.7.0/gems/railties-5.2.8.1/lib/rails/rack/logger.rb:38:in `call_app'
+vendor/bundle/ruby/2.7.0/gems/railties-5.2.8.1/lib/rails/rack/logger.rb:26:in `block in call'
+vendor/bundle/ruby/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+vendor/bundle/ruby/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:28:in `tagged'
+vendor/bundle/ruby/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:71:in `tagged'
+vendor/bundle/ruby/2.7.0/gems/railties-5.2.8.1/lib/rails/rack/logger.rb:26:in `call'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/middleware/request_id.rb:27:in `call'
+vendor/bundle/ruby/2.7.0/gems/rack-2.2.4/lib/rack/runtime.rb:22:in `call'
+vendor/bundle/ruby/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/middleware/executor.rb:14:in `call'
+vendor/bundle/ruby/2.7.0/gems/actionpack-5.2.8.1/lib/action_dispatch/middleware/static.rb:127:in `call'
+vendor/bundle/ruby/2.7.0/gems/rack-2.2.4/lib/rack/sendfile.rb:110:in `call'
+vendor/bundle/ruby/2.7.0/gems/railties-5.2.8.1/lib/rails/engine.rb:524:in `call'
+vendor/bundle/ruby/2.7.0/gems/puma-3.12.6/lib/puma/configuration.rb:227:in `call'
+vendor/bundle/ruby/2.7.0/gems/puma-3.12.6/lib/puma/server.rb:706:in `handle_request'
+vendor/bundle/ruby/2.7.0/gems/puma-3.12.6/lib/puma/server.rb:476:in `process_client'
+vendor/bundle/ruby/2.7.0/gems/puma-3.12.6/lib/puma/server.rb:334:in `block in run'
+vendor/bundle/ruby/2.7.0/gems/puma-3.12.6/lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/authors/invite" for ::1 at 2022-09-14 18:28:47 +0300
+Processing by AuthorsController#invite_author as */*
+  Parameters: {"author_id"=>2, "email"=>"test1@gmail.com", "author"=>{}}
+  [1m[36mAuthor Load (6.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:17
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/authors_controller.rb:21
+  [1m[36mAuthor Update (5.3ms)[0m  [1m[33mUPDATE "authors" SET "invite_token" = ?, "updated_at" = ? WHERE "authors"."id" = ?[0m  [["invite_token", "MWjNSCKHxLhTfi3tfVL5gg"], ["updated_at", "2022-09-14 15:28:47.649385"], ["id", 2]]
+  ↳ app/controllers/authors_controller.rb:21
+  [1m[35m (21.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/authors_controller.rb:21
+[active_model_serializers] Rendered AuthorSerializer with ActiveModelSerializers::Adapter::JsonApi (5.52ms)
+Completed 200 OK in 126ms (Views: 11.9ms | ActiveRecord: 32.6ms)
+
+
+Started POST "/authors/invite" for ::1 at 2022-09-14 18:49:43 +0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by AuthorsController#invite_author as */*
+  Parameters: {"author_id"=>2, "email"=>"test1@gmail.com", "author"=>{}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.24ms)
+Filter chain halted as :authentication rendered or redirected
+Completed 401 Unauthorized in 18ms (Views: 14.5ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/login" for ::1 at 2022-09-14 18:50:09 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"testttest@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"testttest@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "testttest@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.23ms)
+Completed 200 OK in 143ms (Views: 4.9ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/users/2" for ::1 at 2022-09-14 18:50:15 +0300
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::JsonApi (4.43ms)
+Completed 200 OK in 28ms (Views: 19.3ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/login" for ::1 at 2022-09-14 18:50:40 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"testttest@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"testttest@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "testttest@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.26ms)
+Completed 200 OK in 7ms (Views: 2.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/2" for ::1 at 2022-09-14 18:50:44 +0300
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::JsonApi (3.56ms)
+Completed 200 OK in 14ms (Views: 5.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/1" for ::1 at 2022-09-14 18:50:49 +0300
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::JsonApi (1.52ms)
+Completed 200 OK in 8ms (Views: 3.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/authors/invite" for ::1 at 2022-09-14 18:51:17 +0300
+Processing by AuthorsController#invite_author as */*
+  Parameters: {"author_id"=>2, "email"=>"test1@gmail.com", "author"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:19
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/authors_controller.rb:25
+  [1m[36mAuthor Update (2.1ms)[0m  [1m[33mUPDATE "authors" SET "updated_at" = ?, "invite_token" = ? WHERE "authors"."id" = ?[0m  [["updated_at", "2022-09-14 15:51:17.429381"], ["invite_token", "WOocaTfTEe9xAvpFhKkOJQ"], ["id", 2]]
+  ↳ app/controllers/authors_controller.rb:25
+  [1m[35m (6.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/authors_controller.rb:25
+[active_model_serializers] Rendered AuthorSerializer with ActiveModelSerializers::Adapter::JsonApi (1.66ms)
+Completed 200 OK in 110ms (Views: 18.0ms | ActiveRecord: 11.4ms)
+
+
