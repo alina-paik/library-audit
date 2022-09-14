@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/books/:id/comments', to: 'comments#index'
   put '/books/:id/comments/:id', to: 'comments#update'
   delete '/books/:id/comments/:id', to: 'comments#destroy'
+  post '/authors/invite', to: 'authors#invite_author'
   resources :books
   resources :categories
   resources :authors
