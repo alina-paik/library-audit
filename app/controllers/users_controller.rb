@@ -18,15 +18,12 @@ class UsersController < ApplicationController
   # POST /users
   def create
     user = User.new(user_params)
-    if user.save
-      token = encode_user_data(user_id: user.id)
-
-      # return to user
-      render json: user
-    else
-      # render error message
-      render json: { message: 'invalid credentials' }
+    if (token = params["user"]["invite_token"])
+      author = Author.find_by(invite_token: token, user_id: nil)
+      (render(json: { message: 'author not found' }, status: :unprocessable_entity) && return) unless author
+      save_user(user) {author.update(user_id: user.id)} && return
     end
+    save_user(user)
   end
 
   # PUT /users/:id
@@ -52,5 +49,15 @@ class UsersController < ApplicationController
 
   def user_update_params
     params.require(:user).permit(:username, :email, :phone_number)
+  end
+
+  def save_user(user)
+    if user.save
+      yield if block_given?
+      token = encode_user_data(user_id: user.id)
+      render(json: user)
+    else
+      render(json: { message: 'invalid credentials' }, status: :unprocessable_entity)
+    end
   end
 end

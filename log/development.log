@@ -15544,3 +15544,900 @@ Processing by AuthorsController#invite_author as */*
 Completed 200 OK in 110ms (Views: 18.0ms | ActiveRecord: 11.4ms)
 
 
+Started POST "/login" for ::1 at 2022-10-06 20:57:15 +0300
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"testttest@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"testttest@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "testttest@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.35ms)
+Completed 200 OK in 122ms (Views: 21.8ms | ActiveRecord: 7.0ms)
+
+
+Started POST "/authors/invite" for ::1 at 2022-10-06 20:57:21 +0300
+Processing by AuthorsController#invite_author as */*
+  Parameters: {"author_id"=>2, "email"=>"test1@gmail.com", "author"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mAuthor Load (1.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:19
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.36ms)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/authors_controller.rb:25
+  [1m[36mAuthor Update (1.8ms)[0m  [1m[33mUPDATE "authors" SET "updated_at" = ?, "invite_token" = ? WHERE "authors"."id" = ?[0m  [["updated_at", "2022-10-06 17:57:21.375160"], ["invite_token", "Uv4UrU1KvSAk3QcYAc-ZxQ"], ["id", 2]]
+  ↳ app/controllers/authors_controller.rb:25
+  [1m[35m (8.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/authors_controller.rb:25
+Completed 500 Internal Server Error in 188ms (Views: 33.8ms | ActiveRecord: 15.8ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/authors_controller.rb:26:in `invite_author'
+Started POST "/authors/invite" for ::1 at 2022-10-06 21:01:28 +0300
+Processing by AuthorsController#invite_author as */*
+  Parameters: {"author_id"=>2, "email"=>"test1@gmail.com", "author"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mAuthor Load (1.1ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:19
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.24ms)
+Completed 422 Unprocessable Entity in 97ms (Views: 12.4ms | ActiveRecord: 10.3ms)
+
+
+Started POST "/authors/invite" for ::1 at 2022-10-06 21:26:35 +0300
+Processing by AuthorsController#invite_author as */*
+  Parameters: {"author_id"=>2, "email"=>"test1@gmail.com", "author"=>{}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:19
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.21ms)
+Completed 422 Unprocessable Entity in 102ms (Views: 10.9ms | ActiveRecord: 9.1ms)
+
+
+Started POST "/authors/invite" for ::1 at 2022-10-06 21:28:43 +0300
+Processing by AuthorsController#invite_author as */*
+  Parameters: {"author_id"=>2, "email"=>"test1@gmail.com", "author"=>{}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mAuthor Load (1.2ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:19
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.27ms)
+Completed 422 Unprocessable Entity in 112ms (Views: 12.9ms | ActiveRecord: 9.4ms)
+
+
+Started POST "/authors/invite" for ::1 at 2022-10-06 21:30:24 +0300
+Processing by AuthorsController#invite_author as */*
+  Parameters: {"author_id"=>2, "email"=>"test1@gmail.com", "author"=>{}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mAuthor Load (1.2ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:19
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.37ms)
+Completed 422 Unprocessable Entity in 123ms (Views: 13.2ms | ActiveRecord: 10.2ms)
+
+
+Started POST "/authors/invite" for ::1 at 2022-10-06 21:30:29 +0300
+Processing by AuthorsController#invite_author as */*
+  Parameters: {"author_id"=>2, "email"=>"test1@gmail.com", "author"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:19
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.21ms)
+Completed 422 Unprocessable Entity in 25ms (Views: 1.8ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/authors/invite" for ::1 at 2022-10-06 21:30:48 +0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by AuthorsController#invite_author as */*
+  Parameters: {"author_id"=>2, "email"=>"test1@gmail.com", "author"=>{}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:19
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.32ms)
+Completed 422 Unprocessable Entity in 98ms (Views: 12.0ms | ActiveRecord: 10.1ms)
+
+
+Started POST "/authors/invite" for ::1 at 2022-10-06 21:31:09 +0300
+Processing by AuthorsController#invite_author as */*
+  Parameters: {"author_id"=>3, "email"=>"test1@gmail.com", "author"=>{}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mAuthor Load (1.9ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:19
+Completed 404 Not Found in 83ms (ActiveRecord: 10.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Author with 'id'=3):
+  
+app/controllers/authors_controller.rb:19:in `invite_author'
+Started POST "/authors/invite" for ::1 at 2022-10-06 21:31:18 +0300
+Processing by AuthorsController#invite_author as */*
+  Parameters: {"author_id"=>1, "email"=>"test1@gmail.com", "author"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:19
+for this author generate LpUyohZsGOKLxPF4syj2Bg
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/authors_controller.rb:26
+  [1m[36mAuthor Update (1.6ms)[0m  [1m[33mUPDATE "authors" SET "updated_at" = ?, "invite_token" = ? WHERE "authors"."id" = ?[0m  [["updated_at", "2022-10-06 18:31:18.259584"], ["invite_token", "LpUyohZsGOKLxPF4syj2Bg"], ["id", 1]]
+  ↳ app/controllers/authors_controller.rb:26
+  [1m[35m (23.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/authors_controller.rb:26
+[active_model_serializers] Rendered AuthorSerializer with ActiveModelSerializers::Adapter::JsonApi (17.47ms)
+Completed 200 OK in 232ms (Views: 117.0ms | ActiveRecord: 26.1ms)
+
+
+Started POST "/authors/invite" for ::1 at 2022-10-06 21:32:36 +0300
+Processing by AuthorsController#invite_author as */*
+  Parameters: {"author_id"=>1, "email"=>"test1@gmail.com", "author"=>{}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:19
+Completed 500 Internal Server Error in 524ms (ActiveRecord: 10.6ms)
+
+
+  
+NameError (undefined local variable or method `id' for #<AuthorsController:0x00007f31fc0de4d8>):
+  
+app/controllers/authors_controller.rb:24:in `invite_author'
+Started POST "/authors/invite" for ::1 at 2022-10-06 21:33:27 +0300
+Processing by AuthorsController#invite_author as */*
+  Parameters: {"author_id"=>1, "email"=>"test1@gmail.com", "author"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mAuthor Load (1.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:19
+Completed 500 Internal Server Error in 448ms (ActiveRecord: 9.4ms)
+
+
+  
+NameError (undefined local variable or method `author_id' for #<AuthorsController:0x00005593eb3ff2d0>
+Did you mean?  authorized
+               author
+               author_url):
+  
+app/controllers/authors_controller.rb:24:in `invite_author'
+Started POST "/authors/invite" for ::1 at 2022-10-06 21:34:39 +0300
+Processing by AuthorsController#invite_author as */*
+  Parameters: {"author_id"=>1, "email"=>"test1@gmail.com", "author"=>{}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mAuthor Load (1.2ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:19
+for author with 1 generate uqk_sFnNyuJu6Lpt0fvawg
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/authors_controller.rb:26
+  [1m[36mAuthor Update (2.5ms)[0m  [1m[33mUPDATE "authors" SET "updated_at" = ?, "invite_token" = ? WHERE "authors"."id" = ?[0m  [["updated_at", "2022-10-06 18:34:39.582849"], ["invite_token", "uqk_sFnNyuJu6Lpt0fvawg"], ["id", 1]]
+  ↳ app/controllers/authors_controller.rb:26
+  [1m[35m (14.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/authors_controller.rb:26
+[active_model_serializers] Rendered AuthorSerializer with ActiveModelSerializers::Adapter::JsonApi (5.28ms)
+Completed 200 OK in 173ms (Views: 13.1ms | ActiveRecord: 26.0ms)
+
+
+Started POST "/authors/invite" for ::1 at 2022-10-06 21:35:39 +0300
+Processing by AuthorsController#invite_author as */*
+  Parameters: {"author_id"=>1, "email"=>"test1@gmail.com", "author"=>{}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mAuthor Load (1.3ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:19
+for author with id: 1 generate token c8mCkT_HUVAdFnUrKVGong
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/authors_controller.rb:26
+  [1m[36mAuthor Update (1.4ms)[0m  [1m[33mUPDATE "authors" SET "updated_at" = ?, "invite_token" = ? WHERE "authors"."id" = ?[0m  [["updated_at", "2022-10-06 18:35:39.903592"], ["invite_token", "c8mCkT_HUVAdFnUrKVGong"], ["id", 1]]
+  ↳ app/controllers/authors_controller.rb:26
+  [1m[35m (12.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/authors_controller.rb:26
+[active_model_serializers] Rendered AuthorSerializer with ActiveModelSerializers::Adapter::JsonApi (1.86ms)
+Completed 200 OK in 148ms (Views: 11.7ms | ActiveRecord: 25.9ms)
+
+
+Started POST "/users" for ::1 at 2022-10-07 14:23:34 +0300
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"aliiina@gmail.com", "password"=>"[FILTERED]", "username"=>"test", "phone_number"=>"53266599654", "admin"=>"false"}}
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "aliiina@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53266599654"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Create (3.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "phone_number", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "test"], ["email", "aliiina@gmail.com"], ["password", "mypassword2"], ["phone_number", "53266599654"], ["created_at", "2022-10-07 11:23:35.215440"], ["updated_at", "2022-10-07 11:23:35.215440"]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (11.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::JsonApi (7.56ms)
+Completed 200 OK in 151ms (Views: 35.5ms | ActiveRecord: 22.7ms)
+
+
+Started DELETE "/logout" for ::1 at 2022-10-07 14:24:26 +0300
+Processing by AuthenticationController#logout as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.31ms)
+Completed 200 OK in 73ms (Views: 70.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2022-10-07 14:24:33 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"testttest@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"testttest@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "testttest@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Completed 200 OK in 33ms (Views: 6.3ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/authors/invite" for ::1 at 2022-10-07 14:24:39 +0300
+Processing by AuthorsController#invite_author as */*
+  Parameters: {"author_id"=>1, "email"=>"test1@gmail.com", "author"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mAuthor Load (2.1ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:19
+for author with id: 1 generate token KvhoXAtrYxspRtC0PpfeVQ
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/authors_controller.rb:26
+  [1m[36mAuthor Update (1.1ms)[0m  [1m[33mUPDATE "authors" SET "updated_at" = ?, "invite_token" = ? WHERE "authors"."id" = ?[0m  [["updated_at", "2022-10-07 11:24:39.969658"], ["invite_token", "KvhoXAtrYxspRtC0PpfeVQ"], ["id", 1]]
+  ↳ app/controllers/authors_controller.rb:26
+  [1m[35m (20.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/authors_controller.rb:26
+[active_model_serializers] Rendered AuthorSerializer with ActiveModelSerializers::Adapter::JsonApi (16.38ms)
+Completed 200 OK in 202ms (Views: 31.7ms | ActiveRecord: 28.2ms)
+
+
+Started DELETE "/logout" for ::1 at 2022-10-07 14:27:55 +0300
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by AuthenticationController#logout as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.37ms)
+Completed 200 OK in 15ms (Views: 13.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2022-10-07 14:28:15 +0300
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"test123456@gmail.com", "password"=>"[FILTERED]", "username"=>"test", "phone_number"=>"539906599504", "admin"=>"false", "invite_token"=>"KvhoXAtrYxspRtC0PpfeVQ"}}
+Unpermitted parameter: :invite_token
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "539906599504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "phone_number", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "test"], ["email", "test123456@gmail.com"], ["password", "mypassword2"], ["phone_number", "539906599504"], ["created_at", "2022-10-07 11:28:15.908495"], ["updated_at", "2022-10-07 11:28:15.908495"]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (9.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::JsonApi (6.78ms)
+Completed 200 OK in 152ms (Views: 31.0ms | ActiveRecord: 21.8ms)
+
+
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+Started DELETE "/logout" for ::1 at 2022-10-07 14:33:39 +0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by AuthenticationController#logout as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.38ms)
+Completed 200 OK in 18ms (Views: 15.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2022-10-07 14:33:44 +0300
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"test123456@gmail.com", "password"=>"[FILTERED]", "username"=>"test", "phone_number"=>"539906599504", "admin"=>"false", "invite_token"=>"KvhoXAtrYxspRtC0PpfeVQ"}}
+Unpermitted parameter: :invite_token
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "539906599504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.0ms)
+Completed 200 OK in 175ms (Views: 4.0ms | ActiveRecord: 6.5ms)
+
+
+Started POST "/users" for ::1 at 2022-10-07 14:34:24 +0300
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"tessst123456@gmail.com", "password"=>"[FILTERED]", "username"=>"test", "phone_number"=>"539907599504", "admin"=>"false", "invite_token"=>"KvhoXAtrYxspRtC0PpfeVQ"}}
+Unpermitted parameter: :invite_token
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tessst123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "539907599504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Create (3.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "phone_number", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "test"], ["email", "tessst123456@gmail.com"], ["password", "mypassword2"], ["phone_number", "539907599504"], ["created_at", "2022-10-07 11:34:24.219323"], ["updated_at", "2022-10-07 11:34:24.219323"]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (13.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::JsonApi (10.17ms)
+Completed 200 OK in 171ms (Views: 76.6ms | ActiveRecord: 19.2ms)
+
+
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+Started POST "/users" for ::1 at 2022-10-07 14:35:18 +0300
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"tesst123456@gmail.com", "password"=>"[FILTERED]", "username"=>"test", "phone_number"=>"53997599504", "admin"=>"false", "invite_token"=>"KvhoXAtrYxspRtC0PpfeVQ"}}
+Unpermitted parameter: :invite_token
+Started POST "/users" for ::1 at 2022-10-07 14:38:35 +0300
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"tesst123456@gmail.com", "password"=>"[FILTERED]", "username"=>"test", "phone_number"=>"53997599504", "admin"=>"false", "invite_token"=>"KvhoXAtrYxspRtC0PpfeVQ"}}
+Unpermitted parameter: :invite_token
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:56
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tesst123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:56
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53997599504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:56
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "phone_number", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "test"], ["email", "tesst123456@gmail.com"], ["password", "mypassword2"], ["phone_number", "53997599504"], ["created_at", "2022-10-07 11:42:46.986619"], ["updated_at", "2022-10-07 11:42:46.986619"]]
+  ↳ app/controllers/users_controller.rb:56
+  [1m[35m (10.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:56
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::JsonApi (6.22ms)
+Completed 200 OK in 251505ms (Views: 34.6ms | ActiveRecord: 18.6ms)
+
+
+Started POST "/users" for ::1 at 2022-10-07 14:43:13 +0300
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"tess2t123456@gmail.com", "password"=>"[FILTERED]", "username"=>"test", "phone_number"=>"53997597504", "admin"=>"false", "invite_token"=>"KvhoXAtrYxspRtC0PpfeVQ"}}
+Unpermitted parameter: :invite_token
+  [1m[36mAuthor Load (1.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."invite_token" = ? LIMIT ?[0m  [["invite_token", "KvhoXAtrYxspRtC0PpfeVQ"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tess2t123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53997597504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Create (3.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "phone_number", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "test"], ["email", "tess2t123456@gmail.com"], ["password", "mypassword2"], ["phone_number", "53997597504"], ["created_at", "2022-10-07 11:43:13.912218"], ["updated_at", "2022-10-07 11:43:13.912218"]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (9.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24
+  [1m[36mAuthor Update (1.3ms)[0m  [1m[33mUPDATE "authors" SET "user_id" = ?, "updated_at" = ? WHERE "authors"."id" = ?[0m  [["user_id", 7], ["updated_at", "2022-10-07 11:43:13.954090"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  [1m[35m (7.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::JsonApi (5.82ms)
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (5.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "tess2t123456@gmail.com"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? AND "users"."id" != ? LIMIT ?[0m  [["phone_number", "53997597504"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (5.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+Completed 500 Internal Server Error in 236ms (Views: 17.1ms | ActiveRecord: 43.3ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/users_controller.rb:58:in `save_user'
+app/controllers/users_controller.rb:26:in `create'
+Started POST "/users" for ::1 at 2022-10-07 14:44:55 +0300
+  
+SyntaxError (/home/dmitriy/library-audit/app/controllers/users_controller.rb:23: syntax error, unexpected tLABEL, expecting ')'
+     render (json: { message: 'author not found...
+             ^~~~~
+/home/dmitriy/library-audit/app/controllers/users_controller.rb:23: syntax error, unexpected '}', expecting `end'
+...{ message: 'author not found' }) && return unless author
+...                              ^
+):
+  
+app/controllers/users_controller.rb:23: syntax error, unexpected tLABEL, expecting ')'
+app/controllers/users_controller.rb:23: syntax error, unexpected '}', expecting `end'
+Started POST "/users" for ::1 at 2022-10-07 14:46:15 +0300
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"tess2t123456@gmail.com", "password"=>"[FILTERED]", "username"=>"test", "phone_number"=>"53997597504", "admin"=>"false", "invite_token"=>"KvhoXAtrYxspRtC0PpfeVQ"}}
+Unpermitted parameter: :invite_token
+  [1m[36mAuthor Load (1.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."invite_token" = ? LIMIT ?[0m  [["invite_token", "KvhoXAtrYxspRtC0PpfeVQ"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tess2t123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53997597504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.31ms)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tess2t123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53997597504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+Completed 500 Internal Server Error in 331ms (Views: 71.8ms | ActiveRecord: 16.6ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/users_controller.rb:60:in `save_user'
+app/controllers/users_controller.rb:26:in `create'
+Started POST "/users" for ::1 at 2022-10-07 14:47:38 +0300
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"tess2t123456@gmail.com", "password"=>"[FILTERED]", "username"=>"test", "phone_number"=>"53997597504", "admin"=>"false", "invite_token"=>"KvhoXAtrYxspRtC0PpfeVQ"}}
+Unpermitted parameter: :invite_token
+  [1m[36mAuthor Load (1.2ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."invite_token" = ? LIMIT ?[0m  [["invite_token", "KvhoXAtrYxspRtC0PpfeVQ"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tess2t123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53997597504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.28ms)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tess2t123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53997597504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+Completed 500 Internal Server Error in 199ms (Views: 16.2ms | ActiveRecord: 17.8ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/users_controller.rb:60:in `save_user'
+app/controllers/users_controller.rb:26:in `create'
+Started POST "/users" for ::1 at 2022-10-07 14:48:08 +0300
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"tess2t123456@gmail.com", "password"=>"[FILTERED]", "username"=>"test", "phone_number"=>"53997597504", "admin"=>"false", "invite_token"=>"KvhoXAtrYxspRtC0PpfeVQ"}}
+Unpermitted parameter: :invite_token
+  [1m[36mAuthor Load (1.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."invite_token" = ? LIMIT ?[0m  [["invite_token", "KvhoXAtrYxspRtC0PpfeVQ"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tess2t123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53997597504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.28ms)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tess2t123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53997597504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+Completed 500 Internal Server Error in 159ms (Views: 12.2ms | ActiveRecord: 14.0ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/users_controller.rb:60:in `save_user'
+app/controllers/users_controller.rb:26:in `create'
+Started POST "/users" for ::1 at 2022-10-07 14:48:58 +0300
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"tess2t123456@gmail.com", "password"=>"[FILTERED]", "username"=>"test", "phone_number"=>"53997597504", "admin"=>"false", "invite_token"=>"KvhoXAtrYxspRtC0PpfeVQ"}}
+Unpermitted parameter: :invite_token
+  [1m[36mAuthor Load (1.8ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."invite_token" = ? LIMIT ?[0m  [["invite_token", "KvhoXAtrYxspRtC0PpfeVQ"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tess2t123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53997597504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.31ms)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tess2t123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53997597504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+Completed 500 Internal Server Error in 157ms (Views: 15.6ms | ActiveRecord: 14.0ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/users_controller.rb:60:in `save_user'
+app/controllers/users_controller.rb:26:in `create'
+Started POST "/users" for ::1 at 2022-10-07 14:49:17 +0300
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"tess2t123456@gmail.com", "password"=>"[FILTERED]", "username"=>"test", "phone_number"=>"53997597504", "admin"=>"false", "invite_token"=>"KvhoXAtrYxspRtC0PpfeVQ"}}
+Unpermitted parameter: :invite_token
+  [1m[36mAuthor Load (1.1ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."invite_token" = ? LIMIT ?[0m  [["invite_token", "KvhoXAtrYxspRtC0PpfeVQ"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tess2t123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53997597504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.3ms)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tess2t123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53997597504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+Completed 500 Internal Server Error in 158ms (Views: 13.3ms | ActiveRecord: 13.0ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/users_controller.rb:60:in `save_user'
+app/controllers/users_controller.rb:26:in `create'
+Started POST "/users" for ::1 at 2022-10-07 14:52:56 +0300
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"tess2t123456@gmail.com", "password"=>"[FILTERED]", "username"=>"test", "phone_number"=>"53997597504", "admin"=>"false", "invite_token"=>"KvhoXAtrYxspRtC0PpfeVQ"}}
+Unpermitted parameter: :invite_token
+  [1m[36mAuthor Load (1.1ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."invite_token" = ? LIMIT ?[0m  [["invite_token", "KvhoXAtrYxspRtC0PpfeVQ"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tess2t123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53997597504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.75ms)
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tess2t123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53997597504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+Completed 500 Internal Server Error in 238ms (Views: 31.2ms | ActiveRecord: 12.2ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/users_controller.rb:60:in `save_user'
+app/controllers/users_controller.rb:26:in `create'
+Started POST "/users" for ::1 at 2022-10-07 14:53:29 +0300
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"tess2t123456@gmail.com", "password"=>"[FILTERED]", "username"=>"test", "phone_number"=>"53997597504", "admin"=>"false", "invite_token"=>"KvhoXAtrYxspRtC0PpfeVQ"}}
+Unpermitted parameter: :invite_token
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."invite_token" = ? LIMIT ?[0m  [["invite_token", "KvhoXAtrYxspRtC0PpfeVQ"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tess2t123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53997597504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.42ms)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tess2t123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53997597504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+Completed 500 Internal Server Error in 143ms (Views: 12.1ms | ActiveRecord: 11.2ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/users_controller.rb:60:in `save_user'
+app/controllers/users_controller.rb:26:in `create'
+Started POST "/users" for ::1 at 2022-10-07 14:54:20 +0300
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"tess2t123456@gmail.com", "password"=>"[FILTERED]", "username"=>"test", "phone_number"=>"53997597504", "admin"=>"false", "invite_token"=>"KvhoXAtrYxspRtC0PpfeVQ"}}
+Unpermitted parameter: :invite_token
+  [1m[36mAuthor Load (1.1ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."invite_token" = ? LIMIT ?[0m  [["invite_token", "KvhoXAtrYxspRtC0PpfeVQ"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tess2t123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53997597504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.29ms)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tess2t123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53997597504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+Completed 500 Internal Server Error in 170ms (Views: 13.2ms | ActiveRecord: 14.8ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/users_controller.rb:60:in `save_user'
+app/controllers/users_controller.rb:26:in `create'
+Started POST "/users" for ::1 at 2022-10-07 14:54:52 +0300
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"tess2t123456@gmail.com", "password"=>"[FILTERED]", "username"=>"test", "phone_number"=>"53997597504", "admin"=>"false", "invite_token"=>"KvhoXAtrYxspRtC0PpfeVQ"}}
+Unpermitted parameter: :invite_token
+  [1m[36mAuthor Load (1.1ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."invite_token" = ? LIMIT ?[0m  [["invite_token", "KvhoXAtrYxspRtC0PpfeVQ"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tess2t123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53997597504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.29ms)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tess2t123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53997597504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+Completed 500 Internal Server Error in 255ms (Views: 14.8ms | ActiveRecord: 14.8ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/users_controller.rb:60:in `save_user'
+app/controllers/users_controller.rb:26:in `create'
+Started POST "/users" for ::1 at 2022-10-07 14:56:28 +0300
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"tess2t123456@gmail.com", "password"=>"[FILTERED]", "username"=>"test", "phone_number"=>"53997597504", "admin"=>"false", "invite_token"=>"KvhoXAtrYxspRtC0PpfeVQ"}}
+Unpermitted parameter: :invite_token
+  [1m[36mAuthor Load (1.4ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."invite_token" = ? LIMIT ?[0m  [["invite_token", "KvhoXAtrYxspRtC0PpfeVQ"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tess2t123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53997597504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.29ms)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tess2t123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53997597504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+Completed 500 Internal Server Error in 271ms (Views: 16.5ms | ActiveRecord: 15.7ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/users_controller.rb:60:in `save_user'
+app/controllers/users_controller.rb:26:in `create'
+Started POST "/users" for ::1 at 2022-10-07 14:56:48 +0300
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"tess2t123456@gmail.com", "password"=>"[FILTERED]", "username"=>"test", "phone_number"=>"53997597504", "admin"=>"false", "invite_token"=>"KvhoXAtrYxspRtC0PpfeVQ"}}
+Unpermitted parameter: :invite_token
+  [1m[36mAuthor Load (1.2ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."invite_token" = ? LIMIT ?[0m  [["invite_token", "KvhoXAtrYxspRtC0PpfeVQ"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tess2t123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53997597504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.27ms)
+Completed 422 Unprocessable Entity in 155ms (Views: 16.3ms | ActiveRecord: 15.8ms)
+
+
+Started POST "/users" for ::1 at 2022-10-07 14:57:18 +0300
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"tess2t123456@gmail.com", "password"=>"[FILTERED]", "username"=>"test", "phone_number"=>"53997597504", "admin"=>"false", "invite_token"=>"KvhoXAtrYxspRtC0PpfeVQ"}}
+Unpermitted parameter: :invite_token
+  [1m[36mAuthor Load (1.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."invite_token" = ? LIMIT ?[0m  [["invite_token", "KvhoXAtrYxspRtC0PpfeVQ"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tess2t123456@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53997597504"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.36ms)
+Completed 422 Unprocessable Entity in 111ms (Views: 11.1ms | ActiveRecord: 10.9ms)
+
+
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["LIMIT", 1]]
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 9], ["LIMIT", 1]]
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" LIMIT ?[0m  [["LIMIT", 11]]
+Started POST "/users" for ::1 at 2022-10-07 15:01:32 +0300
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"tess5t123456@gmail.com", "password"=>"[FILTERED]", "username"=>"test", "phone_number"=>"53997596504", "admin"=>"false", "invite_token"=>"KvhoXAtrYxspRtC0PpfeVQ"}}
+Unpermitted parameter: :invite_token
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."invite_token" = ? AND "authors"."user_id" IS NULL LIMIT ?[0m  [["invite_token", "KvhoXAtrYxspRtC0PpfeVQ"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.28ms)
+Completed 422 Unprocessable Entity in 66ms (Views: 11.3ms | ActiveRecord: 7.3ms)
+
+
+Started DELETE "/logout" for ::1 at 2022-10-07 15:07:03 +0300
+Processing by AuthenticationController#logout as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.27ms)
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2022-10-07 15:07:14 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"testttest@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"testttest@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "testttest@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.25ms)
+Completed 200 OK in 36ms (Views: 4.3ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/authors/invite" for ::1 at 2022-10-07 15:07:49 +0300
+Processing by AuthorsController#invite_author as */*
+  Parameters: {"author_id"=>1, "email"=>"test1@gmail.com", "author"=>{}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mAuthor Load (1.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:19
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.35ms)
+Completed 422 Unprocessable Entity in 64ms (Views: 2.9ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/authors/invite" for ::1 at 2022-10-07 15:08:00 +0300
+Processing by AuthorsController#invite_author as */*
+  Parameters: {"author_id"=>2, "email"=>"test1@gmail.com", "author"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mAuthor Load (3.6ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:19
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.21ms)
+Completed 422 Unprocessable Entity in 17ms (Views: 1.6ms | ActiveRecord: 4.1ms)
+
+
+Started POST "/authors/invite" for ::1 at 2022-10-07 15:08:11 +0300
+Processing by AuthorsController#invite_author as */*
+  Parameters: {"author_id"=>2, "email"=>"test2@gmail.com", "author"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:19
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.85ms)
+Completed 422 Unprocessable Entity in 11ms (Views: 2.7ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/authors/invite" for ::1 at 2022-10-07 15:08:19 +0300
+Processing by AuthorsController#invite_author as */*
+  Parameters: {"author_id"=>8, "email"=>"test2@gmail.com", "author"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mAuthor Load (10.5ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:19
+Completed 404 Not Found in 22ms (ActiveRecord: 11.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Author with 'id'=8):
+  
+app/controllers/authors_controller.rb:19:in `invite_author'
+Started POST "/authors/invite" for ::1 at 2022-10-07 15:08:53 +0300
+Processing by AuthorsController#invite_author as */*
+  Parameters: {"author_id"=>3, "email"=>"test2@gmail.com", "author"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:19
+Completed 404 Not Found in 12ms (ActiveRecord: 1.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Author with 'id'=3):
+  
+app/controllers/authors_controller.rb:19:in `invite_author'
+Started GET "/authors?page=1" for ::1 at 2022-10-07 15:09:05 +0300
+Processing by AuthorsController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[36mAuthor Load (1.2ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" LIMIT ? OFFSET ?[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/controllers/authors_controller.rb:9
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (42.98ms)
+Completed 200 OK in 115ms (Views: 112.6ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/logout" for ::1 at 2022-10-09 14:23:37 +0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by AuthenticationController#logout as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.36ms)
+Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2022-10-09 14:26:22 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"testttest@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"testttest@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "testttest@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+Completed 200 OK in 166ms (Views: 1.9ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/books" for ::1 at 2022-10-09 14:26:46 +0300
+Processing by BooksController#create as */*
+  Parameters: {"book"=>{"category_id"=>7, "name"=>"test2.0", "description"=>"testtestetsetsetstet"}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:24
+Unpermitted parameter: :category_id
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:29
+  [1m[36mBook Create (1.9ms)[0m  [1m[32mINSERT INTO "books" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "test2.0"], ["description", "testtestetsetsetstet"], ["created_at", "2022-10-09 11:26:46.488201"], ["updated_at", "2022-10-09 11:26:46.488201"]]
+  ↳ app/controllers/books_controller.rb:29
+  [1m[36mBook::HABTM_Categories Create (1.5ms)[0m  [1m[32mINSERT INTO "books_categories" ("book_id", "category_id") VALUES (?, ?)[0m  [["book_id", 3], ["category_id", 7]]
+  ↳ app/controllers/books_controller.rb:29
+  [1m[36mBook::HABTM_Authors Create (1.1ms)[0m  [1m[32mINSERT INTO "authors_books" ("book_id", "author_id") VALUES (?, ?)[0m  [["book_id", 3], ["author_id", 2]]
+  ↳ app/controllers/books_controller.rb:29
+  [1m[35m (12.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:29
+[active_model_serializers] Rendered BookSerializer with ActiveModelSerializers::Adapter::JsonApi (60.95ms)
+Completed 201 Created in 506ms (Views: 118.4ms | ActiveRecord: 35.1ms)
+
+
+Started POST "/authors/invite" for ::1 at 2022-10-09 14:27:33 +0300
+Processing by AuthorsController#invite_author as */*
+  Parameters: {"author_id"=>3, "email"=>"test2@gmail.com", "author"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:19
+Completed 404 Not Found in 10ms (ActiveRecord: 1.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Author with 'id'=3):
+  
+app/controllers/authors_controller.rb:19:in `invite_author'

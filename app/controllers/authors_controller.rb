@@ -17,10 +17,11 @@ class AuthorsController < ApplicationController
 
   def invite_author
     author = Author.find(params[:author_id])
-    render json: {message: "user_id is present"}, status: :unprocessable_entity if author.user_id.nil?
+    render(json: {message: "user_id is present"}, status: :unprocessable_entity) && return if author.user_id
     authorize! author
     token = SecureRandom.urlsafe_base64
     author.invite_token = token
+    Rails.logger.info("for author with id: #{author.id} generate token #{token}")
     # TODO: ADD SEND MAIL
     if author.save
       render json: author, status: :ok
