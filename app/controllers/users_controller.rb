@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :authentication, except: %i[create index]
-  before_action :find_user, except: %i[create index]
+  before_action :authentication, except: %i[create]
+  before_action :find_user, except: %i[create index profile]
 
   # GET /users
   def index
@@ -10,18 +10,18 @@ class UsersController < ApplicationController
     render json: @users, status: :ok
   end
 
-  # GET /users/:id
-  def show
+  # GET /users/profile
+  def profile
     render json: @user, status: :ok
   end
 
   # POST /users
   def create
     user = User.new(user_params)
-    if (token = params["user"]["invite_token"])
+    if (token = params['user']['invite_token'])
       author = Author.find_by(invite_token: token, user_id: nil)
       (render(json: { message: 'author not found' }, status: :unprocessable_entity) && return) unless author
-      save_user(user) {author.update(user_id: user.id)} && return
+      save_user(user) { author.update(user_id: user.id) } && return
     end
     save_user(user)
   end

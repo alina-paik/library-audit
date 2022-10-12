@@ -8,9 +8,9 @@ gem 'action_policy'
 gem 'dotenv-rails', groups: %i[development test]
 gem 'rubocop-rails'
 
-#serializer
+# serializer
 gem 'active_model_serializers'
-#pagination
+# pagination
 gem 'kaminari'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.4'

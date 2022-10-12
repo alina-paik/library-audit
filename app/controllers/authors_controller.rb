@@ -17,7 +17,8 @@ class AuthorsController < ApplicationController
 
   def invite_author
     author = Author.find(params[:author_id])
-    render(json: {message: "user_id is present"}, status: :unprocessable_entity) && return if author.user_id
+    render(json: { message: 'user_id is present' }, status: :unprocessable_entity) && return if author.user_id
+
     authorize! author
     token = SecureRandom.urlsafe_base64
     author.invite_token = token

@@ -26,37 +26,34 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.categories << category
     @book.authors << author
-    if @book.save
-      render json: @book, status: :created
-    else
-      render json: @book.errors, status: :unprocessable_entity
-    end
+    save_book
   end
 
   # POST books/:id/authors
   def add_author
     authorize! @book
-    author_ids = @book.authors.map { |n| n.id }
-    if author_ids.include?(params[:author_id])
-      render json: {message: "author is present"}
+    find_author
+    if @author_ids.include?(params[:author_id])
+      render json: { message: 'author is present' }
+    elsif (author = Author.find_by(id: params[:author_id])).present?
+      @book.authors << author
+      save_book
     else
-      if (author = Author.find_by(id: params[:author_id])).present?
-        @book.authors << author
-        if @book.save
-          render json: @book, status: :ok
-        else
-          render json: @book.errors, status: :unprocessable_entity
-        end
-      else
-        render json: {message: "author not found"}
-      end
+      render json: { message: 'author not found' }
     end
   end
 
   # DEL books/:id/authors
   def remove_author
     authorize! @book
-    authors_params
+    find_author
+    author = Author.find_by(id: params[:author_id])
+    if @author_ids.include?(params[:author_id])
+      @book.authors.delete(author)
+      render json: @book, status: :ok
+    else
+      render json: { message: 'author not found' }
+    end
   end
 
   # PUT /books/ :id
@@ -85,12 +82,15 @@ class BooksController < ApplicationController
     params.require(:book).permit(:name, :description)
   end
 
-  def authors_params
-    author_ids = @book.authors.map { |n| n.id }
-    if author_ids.include?(params[:author_id])
-      render json: {message: "author is present"}
+  def save_book
+    if @book.save
+      render json: @book, status: :ok
     else
-      render json: {message: "author not found"}
+      render json: @book.errors, status: :unprocessable_entity
     end
+  end
+
+  def find_author
+    @author_ids = @book.authors.map(&:id)
   end
 end

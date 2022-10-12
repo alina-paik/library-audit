@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class AuthorPolicy < ApplicationPolicy
   def invite_author?
-    user.admin 
+    user.admin
   end
 end
