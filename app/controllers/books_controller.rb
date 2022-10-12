@@ -2,7 +2,7 @@
 
 class BooksController < ApplicationController
   before_action :authentication, except: %i[index show]
-  before_action :set_book, only: %i[show update destroy]
+  before_action :set_book, only: %i[show update destroy add_author remove_author]
 
   # GET /books?page=:page
   def index
@@ -26,10 +26,33 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.categories << category
     @book.authors << author
-    if @book.save
-      render json: @book, status: :created
+    save_book
+  end
+
+  # POST books/:id/authors
+  def add_author
+    authorize! @book
+    find_author
+    if @author_ids.include?(params[:author_id])
+      render json: { message: 'author is present' }
+    elsif (author = Author.find_by(id: params[:author_id])).present?
+      @book.authors << author
+      save_book
     else
-      render json: @book.errors, status: :unprocessable_entity
+      render json: { message: 'author not found' }
+    end
+  end
+
+  # DEL books/:id/authors
+  def remove_author
+    authorize! @book
+    find_author
+    author = Author.find_by(id: params[:author_id])
+    if @author_ids.include?(params[:author_id])
+      @book.authors.delete(author)
+      render json: @book, status: :ok
+    else
+      render json: { message: 'author not found' }
     end
   end
 
@@ -57,5 +80,17 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit(:name, :description)
+  end
+
+  def save_book
+    if @book.save
+      render json: @book, status: :ok
+    else
+      render json: @book.errors, status: :unprocessable_entity
+    end
+  end
+
+  def find_author
+    @author_ids = @book.authors.map(&:id)
   end
 end
