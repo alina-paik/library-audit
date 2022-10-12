@@ -16441,3 +16441,836 @@ Completed 404 Not Found in 10ms (ActiveRecord: 1.3ms)
 ActiveRecord::RecordNotFound (Couldn't find Author with 'id'=3):
   
 app/controllers/authors_controller.rb:19:in `invite_author'
+Started DELETE "/logout" for ::1 at 2022-10-11 19:22:21 +0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by AuthenticationController#logout as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2022-10-11 19:23:16 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"aliiina@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"aliiina@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "aliiina@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1.47ms)
+Completed 200 OK in 136ms (Views: 5.1ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/users/1" for ::1 at 2022-10-11 19:23:23 +0300
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::JsonApi (5.8ms)
+Completed 200 OK in 36ms (Views: 28.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/3" for ::1 at 2022-10-11 19:23:46 +0300
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::JsonApi (2.18ms)
+Completed 200 OK in 16ms (Views: 8.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/4" for ::1 at 2022-10-11 19:23:56 +0300
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::JsonApi (2.32ms)
+Completed 200 OK in 14ms (Views: 3.9ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users/5" for ::1 at 2022-10-11 19:24:05 +0300
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::JsonApi (2.55ms)
+Completed 200 OK in 11ms (Views: 5.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/6" for ::1 at 2022-10-11 19:24:15 +0300
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::JsonApi (1.47ms)
+Completed 200 OK in 9ms (Views: 2.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/7" for ::1 at 2022-10-11 19:24:25 +0300
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::JsonApi (1.68ms)
+Completed 200 OK in 32ms (Views: 3.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/8" for ::1 at 2022-10-11 19:24:35 +0300
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.24ms)
+Filter chain halted as :find_user rendered or redirected
+Completed 404 Not Found in 14ms (Views: 2.6ms | ActiveRecord: 0.9ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (1.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "testick"], ["created_at", "2022-10-11 16:43:18.203231"], ["updated_at", "2022-10-11 16:43:18.203231"]]
+  [1m[35m (6.7ms)[0m  [1m[36mcommit transaction[0m
+Started DELETE "/logout" for ::1 at 2022-10-11 19:43:36 +0300
+Processing by AuthenticationController#logout as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2022-10-11 19:43:50 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"testttest@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"testttest@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "testttest@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+Completed 200 OK in 7ms (Views: 1.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/1" for ::1 at 2022-10-11 19:44:00 +0300
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::JsonApi (1.18ms)
+Completed 200 OK in 10ms (Views: 2.3ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/authors/invite" for ::1 at 2022-10-11 19:44:12 +0300
+Processing by AuthorsController#invite_author as */*
+  Parameters: {"author_id"=>3, "email"=>"test2@gmail.com", "author"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:19
+for author with id: 3 generate token bocTg0aYLO_eWp-XeKmfIQ
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/authors_controller.rb:26
+  [1m[36mAuthor Update (1.2ms)[0m  [1m[33mUPDATE "authors" SET "updated_at" = ?, "invite_token" = ? WHERE "authors"."id" = ?[0m  [["updated_at", "2022-10-11 16:44:12.368478"], ["invite_token", "bocTg0aYLO_eWp-XeKmfIQ"], ["id", 3]]
+  ↳ app/controllers/authors_controller.rb:26
+  [1m[35m (6.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/authors_controller.rb:26
+[active_model_serializers] Rendered AuthorSerializer with ActiveModelSerializers::Adapter::JsonApi (1.43ms)
+Completed 200 OK in 62ms (Views: 6.8ms | ActiveRecord: 11.9ms)
+
+
+Started POST "/users" for ::1 at 2022-10-11 19:46:20 +0300
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"test2@gmail.com", "password"=>"[FILTERED]", "username"=>"testick", "phone_number"=>"53997596204", "admin"=>"false", "invite_token"=>"bocTg0aYLO_eWp-XeKmfIQ"}}
+Unpermitted parameter: :invite_token
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."invite_token" = ? AND "authors"."user_id" IS NULL LIMIT ?[0m  [["invite_token", "bocTg0aYLO_eWp-XeKmfIQ"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53997596204"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Create (2.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "phone_number", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "testick"], ["email", "test2@gmail.com"], ["password", "mypassword2"], ["phone_number", "53997596204"], ["created_at", "2022-10-11 16:46:20.082913"], ["updated_at", "2022-10-11 16:46:20.082913"]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (10.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24
+  [1m[36mAuthor Update (1.3ms)[0m  [1m[33mUPDATE "authors" SET "user_id" = ?, "updated_at" = ? WHERE "authors"."id" = ?[0m  [["user_id", 8], ["updated_at", "2022-10-11 16:46:20.114863"], ["id", 3]]
+  ↳ app/controllers/users_controller.rb:24
+  [1m[35m (10.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::JsonApi (4.54ms)
+Completed 200 OK in 87ms (Views: 8.3ms | ActiveRecord: 27.1ms)
+
+
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" LIMIT ?[0m  [["LIMIT", 11]]
+Started POST "/login" for ::1 at 2022-10-12 18:38:54 +0300
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"testttest@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"testttest@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "testttest@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.35ms)
+Completed 200 OK in 80ms (Views: 16.0ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/login" for ::1 at 2022-10-12 20:49:38 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"testttest@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"testttest@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "testttest@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.25ms)
+Completed 200 OK in 67ms (Views: 12.7ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/users/1" for ::1 at 2022-10-12 20:49:42 +0300
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::JsonApi (8.6ms)
+Completed 200 OK in 105ms (Views: 92.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/books?page=1" for ::1 at 2022-10-12 20:49:56 +0300
+Processing by BooksController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" LIMIT ? OFFSET ?[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/controllers/books_controller.rb:10
+[active_model_serializers]   [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+[active_model_serializers]   ↳ app/controllers/books_controller.rb:10
+[active_model_serializers]   [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 3]]
+[active_model_serializers]   ↳ app/controllers/books_controller.rb:10
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (177.29ms)
+Completed 200 OK in 306ms (Views: 226.4ms | ActiveRecord: 15.3ms)
+
+
+Started GET "/authors?page=1" for ::1 at 2022-10-12 20:50:25 +0300
+Processing by AuthorsController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" LIMIT ? OFFSET ?[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/controllers/authors_controller.rb:9
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (6.54ms)
+Completed 200 OK in 21ms (Views: 18.3ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/books/1/authors" for ::1 at 2022-10-12 20:50:57 +0300
+Processing by BooksController#add_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.6ms)
+
+
+  
+ArgumentError (Record or policy must be specified):
+  
+app/controllers/books_controller.rb:38:in `add_author'
+Started POST "/books/1/authors" for ::1 at 2022-10-12 20:57:30 +0300
+Processing by BooksController#add_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+Completed 500 Internal Server Error in 66ms (ActiveRecord: 4.7ms)
+
+
+  
+NoMethodError (undefined method `authors' for #<Class:0x00007ff984023e80>):
+  
+app/controllers/books_controller.rb:39:in `add_author'
+Started POST "/books/1/authors" for ::1 at 2022-10-12 20:58:10 +0300
+Processing by BooksController#add_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+Completed 500 Internal Server Error in 73ms (ActiveRecord: 7.6ms)
+
+
+  
+NoMethodError (undefined method `authors' for nil:NilClass):
+  
+app/controllers/books_controller.rb:39:in `add_author'
+Started POST "/books/1/authors" for ::1 at 2022-10-12 21:06:19 +0300
+Processing by BooksController#add_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+Completed 500 Internal Server Error in 317ms (ActiveRecord: 5.2ms)
+
+
+  
+NameError (undefined local variable or method `author' for #<BooksController:0x00007ff9840d2890>
+Did you mean?  author_url):
+  
+app/controllers/books_controller.rb:39:in `add_author'
+Started POST "/books/1/authors" for ::1 at 2022-10-12 21:06:53 +0300
+Processing by BooksController#add_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+Completed 500 Internal Server Error in 443ms (ActiveRecord: 9.1ms)
+
+
+  
+NameError (undefined local variable or method `author_id' for #<BooksController:0x00007ff96c8172d0>
+Did you mean?  author_ids
+               authorized
+               author
+               author_url):
+  
+app/controllers/books_controller.rb:39:in `add_author'
+Started POST "/books/1/authors" for ::1 at 2022-10-12 21:07:35 +0300
+Processing by BooksController#add_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mBook Load (9.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."author_id" = ?[0m  [["author_id", 1]]
+  ↳ app/controllers/books_controller.rb:39
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 14.5ms)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: books.author_id: SELECT "books".* FROM "books" WHERE "books"."author_id" = ?):
+  
+app/controllers/books_controller.rb:39:in `map'
+app/controllers/books_controller.rb:39:in `add_author'
+Started POST "/books/1/authors" for ::1 at 2022-10-12 21:07:51 +0300
+Processing by BooksController#add_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 5.1ms)
+
+
+  
+NoMethodError (undefined method `id' for :author:Symbol):
+  
+app/controllers/books_controller.rb:39:in `add_author'
+Started POST "/books/1/authors" for ::1 at 2022-10-12 21:47:21 +0300
+Processing by BooksController#add_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 4.3ms)
+
+
+  
+NoMethodError (undefined method `authors' for nil:NilClass):
+  
+app/controllers/books_controller.rb:39:in `add_author'
+Started GET "/books?page=1" for ::1 at 2022-10-12 21:51:54 +0300
+Processing by BooksController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[36mBook Load (1.7ms)[0m  [1m[34mSELECT  "books".* FROM "books" LIMIT ? OFFSET ?[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/controllers/books_controller.rb:10
+[active_model_serializers]   [1m[36mAuthor Load (1.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+[active_model_serializers]   ↳ app/controllers/books_controller.rb:10
+[active_model_serializers]   [1m[36mAuthor Load (1.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 3]]
+[active_model_serializers]   ↳ app/controllers/books_controller.rb:10
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (83.29ms)
+Completed 200 OK in 229ms (Views: 114.8ms | ActiveRecord: 13.0ms)
+
+
+Started POST "/books/1/authors" for ::1 at 2022-10-12 21:52:03 +0300
+Processing by BooksController#add_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:68
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ (byebug):1
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."author_id" = ? AND "books"."id" = ? LIMIT ?[0m  [["author_id", 2], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:41
+Completed 500 Internal Server Error in 780294ms (ActiveRecord: 6.8ms)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: books.author_id: SELECT  "books".* FROM "books" WHERE "books"."author_id" = ? AND "books"."id" = ? LIMIT ?):
+  
+app/controllers/books_controller.rb:41:in `add_author'
+Started POST "/books/1/authors" for ::1 at 2022-10-12 22:05:08 +0300
+Processing by BooksController#add_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:68
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/policies/book_policy.rb:17
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/policies/book_policy.rb:18
+  [1m[36mBook Load (1.5ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."author_id" = ? AND "books"."id" = ? LIMIT ?[0m  [["author_id", 2], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:41
+Completed 500 Internal Server Error in 208ms (ActiveRecord: 14.4ms)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: books.author_id: SELECT  "books".* FROM "books" WHERE "books"."author_id" = ? AND "books"."id" = ? LIMIT ?):
+  
+app/controllers/books_controller.rb:41:in `add_author'
+Started POST "/books/1/authors" for ::1 at 2022-10-12 22:32:06 +0300
+Processing by BooksController#add_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:80
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/policies/book_policy.rb:17
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/policies/book_policy.rb:18
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+Completed 500 Internal Server Error in 216ms (ActiveRecord: 14.8ms)
+
+
+  
+ActiveRecord::AssociationTypeMismatch (Author(#75140) expected, got true which is an instance of TrueClass(#4040)):
+  
+app/controllers/books_controller.rb:44:in `add_author'
+Started POST "/books/1/authors" for ::1 at 2022-10-12 22:39:01 +0300
+Processing by BooksController#add_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:76
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/policies/book_policy.rb:17
+  [1m[36mAuthor Load (4.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/policies/book_policy.rb:18
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ (byebug):1
+  [1m[36mCACHE Author Load (0.1ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ (byebug):1
+  [1m[36mCACHE Author Load (0.1ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ (byebug):1
+  [1m[36mCACHE Author Load (0.1ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:44
+Completed 500 Internal Server Error in 321920ms (ActiveRecord: 22.3ms)
+
+
+  
+ActiveRecord::AssociationTypeMismatch (Author(#80420) expected, got true which is an instance of TrueClass(#4040)):
+  
+app/controllers/books_controller.rb:45:in `add_author'
+Started POST "/books/1/authors" for ::1 at 2022-10-12 22:44:40 +0300
+Processing by BooksController#add_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:75
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/policies/book_policy.rb:17
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/policies/book_policy.rb:18
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[36mBook::HABTM_Authors Create (3.3ms)[0m  [1m[32mINSERT INTO "authors_books" ("book_id", "author_id") VALUES (?, ?)[0m  [["book_id", 1], ["author_id", 1]]
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (72.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:44
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:45
+  [1m[35m (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:45
+[active_model_serializers] Rendered BookSerializer with ActiveModelSerializers::Adapter::JsonApi (14.18ms)
+Completed 200 OK in 352ms (Views: 24.1ms | ActiveRecord: 104.5ms)
+
+
+Started GET "/books?page=1" for ::1 at 2022-10-12 22:44:50 +0300
+Processing by BooksController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  "books".* FROM "books" LIMIT ? OFFSET ?[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/controllers/books_controller.rb:10
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+[active_model_serializers]   ↳ app/controllers/books_controller.rb:10
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 3]]
+[active_model_serializers]   ↳ app/controllers/books_controller.rb:10
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (38.76ms)
+Completed 200 OK in 50ms (Views: 47.2ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/books/1/authors" for ::1 at 2022-10-12 22:45:09 +0300
+Processing by BooksController#add_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:75
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/policies/book_policy.rb:17
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/policies/book_policy.rb:18
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.26ms)
+Completed 200 OK in 56ms (Views: 10.8ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/books/1/authors" for ::1 at 2022-10-12 22:45:21 +0300
+Processing by BooksController#add_author as */*
+  Parameters: {"author_id"=>6, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:75
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/policies/book_policy.rb:17
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/policies/book_policy.rb:18
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:43
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+Completed 200 OK in 24ms (Views: 1.7ms | ActiveRecord: 2.6ms)
+
+
+Started DELETE "/books/1/authors" for ::1 at 2022-10-12 22:58:06 +0300
+Processing by BooksController#remove_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:86
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/policies/book_policy.rb:23
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/policies/book_policy.rb:24
+Completed 500 Internal Server Error in 387ms (ActiveRecord: 11.3ms)
+
+
+  
+NameError (undefined local variable or method `author' for #<BooksController:0x00007ff96c5e39c8>
+Did you mean?  author_url):
+  
+app/controllers/books_controller.rb:61:in `remove_author'
+Started DELETE "/books/1/authors" for ::1 at 2022-10-12 23:00:06 +0300
+Processing by BooksController#remove_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:86
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/policies/book_policy.rb:23
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/policies/book_policy.rb:24
+Completed 500 Internal Server Error in 236ms (ActiveRecord: 16.7ms)
+
+
+  
+NoMethodError (undefined method `destroy' for [2, 1]:Array):
+  
+app/controllers/books_controller.rb:61:in `remove_author'
+Started DELETE "/books/1/authors" for ::1 at 2022-10-12 23:01:03 +0300
+Processing by BooksController#remove_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:86
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/policies/book_policy.rb:23
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/policies/book_policy.rb:24
+Completed 500 Internal Server Error in 155ms (ActiveRecord: 14.8ms)
+
+
+  
+NoMethodError (undefined method `destroy' for true:TrueClass):
+  
+app/controllers/books_controller.rb:61:in `remove_author'
+Started DELETE "/books/1/authors" for ::1 at 2022-10-12 23:01:24 +0300
+Processing by BooksController#remove_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:86
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/policies/book_policy.rb:23
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/policies/book_policy.rb:24
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:80
+  [1m[36mBook::HABTM_Authors Destroy (1.5ms)[0m  [1m[31mDELETE FROM "authors_books" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/controllers/books_controller.rb:80
+  [1m[36mBook::HABTM_Categories Destroy (1.2ms)[0m  [1m[31mDELETE FROM "books_categories" WHERE "books_categories"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/controllers/books_controller.rb:80
+  [1m[36mBook Destroy (1.9ms)[0m  [1m[31mDELETE FROM "books" WHERE "books"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/books_controller.rb:80
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:80
+Completed 500 Internal Server Error in 262ms (ActiveRecord: 19.0ms)
+
+
+  
+ActiveRecord::InvalidForeignKey (SQLite3::ConstraintException: FOREIGN KEY constraint failed: DELETE FROM "books" WHERE "books"."id" = ?):
+  
+app/controllers/books_controller.rb:80:in `destroy'
+app/controllers/books_controller.rb:61:in `remove_author'
+Started DELETE "/books/1/authors" for ::1 at 2022-10-12 23:02:03 +0300
+Processing by BooksController#remove_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:86
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/policies/book_policy.rb:23
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/policies/book_policy.rb:24
+Completed 500 Internal Server Error in 158ms (ActiveRecord: 12.0ms)
+
+
+  
+NoMethodError (undefined method `author' for #<Book:0x00007ff9684cf6a8>
+Did you mean?  authors
+               authors=):
+  
+app/controllers/books_controller.rb:61:in `remove_author'
+Started DELETE "/books/1/authors" for ::1 at 2022-10-12 23:08:00 +0300
+Processing by BooksController#remove_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:85
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/policies/book_policy.rb:23
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/policies/book_policy.rb:24
+Completed 500 Internal Server Error in 138ms (ActiveRecord: 12.1ms)
+
+
+  
+NoMethodError (undefined method `destroy' for true:TrueClass):
+  
+app/controllers/books_controller.rb:60:in `remove_author'
+Started DELETE "/books/1/authors" for ::1 at 2022-10-12 23:08:29 +0300
+Processing by BooksController#remove_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:85
+  [1m[36mAuthor Load (1.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/policies/book_policy.rb:23
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/policies/book_policy.rb:24
+Completed 500 Internal Server Error in 153ms (ActiveRecord: 19.2ms)
+
+
+  
+NoMethodError (undefined method `delete' for true:TrueClass):
+  
+app/controllers/books_controller.rb:60:in `remove_author'
+Started DELETE "/books/1/authors" for ::1 at 2022-10-12 23:08:55 +0300
+Processing by BooksController#remove_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:85
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/policies/book_policy.rb:23
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/policies/book_policy.rb:24
+Completed 500 Internal Server Error in 142ms (ActiveRecord: 13.9ms)
+
+
+  
+NoMethodError (undefined method `remove' for true:TrueClass):
+  
+app/controllers/books_controller.rb:60:in `remove_author'
+Started DELETE "/books/1/authors" for ::1 at 2022-10-12 23:22:30 +0300
+Processing by BooksController#remove_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:85
+  [1m[36mAuthor Load (2.1ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/policies/book_policy.rb:23
+  [1m[36mAuthor Load (1.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/policies/book_policy.rb:24
+Completed 500 Internal Server Error in 332ms (ActiveRecord: 18.1ms)
+
+
+  
+NoMethodError (undefined method `destroy_by' for #<BooksController:0x00007ff9682d3160>
+Did you mean?  destroy):
+  
+app/controllers/books_controller.rb:60:in `remove_author'
+Started DELETE "/books/1/authors" for ::1 at 2022-10-12 23:24:50 +0300
+Processing by BooksController#remove_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:86
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/policies/book_policy.rb:23
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/policies/book_policy.rb:24
+Completed 500 Internal Server Error in 388ms (ActiveRecord: 17.6ms)
+
+
+  
+NoMethodError (undefined method `delete_by' for #<BooksController:0x00007ff970106870>):
+  
+app/controllers/books_controller.rb:61:in `remove_author'
+Started DELETE "/books/1/authors" for ::1 at 2022-10-12 23:25:10 +0300
+Processing by BooksController#remove_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:86
+  [1m[36mAuthor Load (1.3ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/policies/book_policy.rb:23
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/policies/book_policy.rb:24
+Completed 500 Internal Server Error in 160ms (ActiveRecord: 14.1ms)
+
+
+  
+NoMethodError (undefined method `delete_by' for #<Book:0x00007ff984113930>
+Did you mean?  delete):
+  
+app/controllers/books_controller.rb:61:in `remove_author'
+Started DELETE "/books/1/authors" for ::1 at 2022-10-12 23:25:39 +0300
+Processing by BooksController#remove_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:86
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/policies/book_policy.rb:23
+  [1m[36mAuthor Load (1.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/policies/book_policy.rb:24
+Completed 500 Internal Server Error in 162ms (ActiveRecord: 14.5ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/books_controller.rb:61:in `remove_author'
+Started DELETE "/books/1/authors" for ::1 at 2022-10-12 23:30:21 +0300
+  
+SyntaxError (/home/dmitriy/library-audit/app/controllers/books_controller.rb:61: syntax error, unexpected ']', expecting ')'
+...ok.delete(author_id: author_id])
+...                              ^
+/home/dmitriy/library-audit/app/controllers/books_controller.rb:63: syntax error, unexpected '}', expecting `end'
+...: {message: "author not found"}
+...                              ^
+/home/dmitriy/library-audit/app/controllers/books_controller.rb:92: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/books_controller.rb:61: syntax error, unexpected ']', expecting ')'
+app/controllers/books_controller.rb:63: syntax error, unexpected '}', expecting `end'
+app/controllers/books_controller.rb:92: syntax error, unexpected end-of-input, expecting `end'
+Started DELETE "/books/1/authors" for ::1 at 2022-10-12 23:30:36 +0300
+Processing by BooksController#remove_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:86
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/policies/book_policy.rb:23
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/policies/book_policy.rb:24
+Completed 500 Internal Server Error in 606ms (ActiveRecord: 26.4ms)
+
+
+  
+NameError (undefined local variable or method `author_id' for #<BooksController:0x00007ff95c5c02a8>
+Did you mean?  author_ids
+               authorized
+               author_url):
+  
+app/controllers/books_controller.rb:61:in `remove_author'
+Started DELETE "/books/1/authors" for ::1 at 2022-10-12 23:34:13 +0300
+Processing by BooksController#remove_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:86
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/policies/book_policy.rb:23
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/policies/book_policy.rb:24
+Completed 500 Internal Server Error in 172ms (ActiveRecord: 15.1ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/books_controller.rb:61:in `remove_author'
+Started DELETE "/books/1/authors" for ::1 at 2022-10-12 23:44:23 +0300
+Processing by BooksController#remove_author as */*
+  Parameters: {"author_id"=>1, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:87
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/policies/book_policy.rb:23
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/policies/book_policy.rb:24
+Completed 500 Internal Server Error in 81043ms (ActiveRecord: 16.8ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/books_controller.rb:62:in `remove_author'
+Started POST "/books/1/authors" for ::1 at 2022-10-12 23:46:45 +0300
+Processing by BooksController#add_author as */*
+  Parameters: {"author_id"=>3, "id"=>"1", "book"=>{}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:87
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/policies/book_policy.rb:17
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/policies/book_policy.rb:18
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ (byebug):1
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ (byebug):1
+  [1m[36mBook::HABTM_Authors Create (2.1ms)[0m  [1m[32mINSERT INTO "authors_books" ("book_id", "author_id") VALUES (?, ?)[0m  [["book_id", 1], ["author_id", 3]]
+  ↳ (byebug):1
+  [1m[35m (12.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ (byebug):1
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+Completed 200 OK in 43994ms (Views: 13.8ms | ActiveRecord: 43.6ms)
+
+
+Started GET "/books?page=1" for ::1 at 2022-10-12 23:47:52 +0300
+Processing by BooksController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[36mBook Load (17.9ms)[0m  [1m[34mSELECT  "books".* FROM "books" LIMIT ? OFFSET ?[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/controllers/books_controller.rb:10
+[active_model_serializers]   [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 1]]
+[active_model_serializers]   ↳ app/controllers/books_controller.rb:10
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = ?[0m  [["book_id", 3]]
+[active_model_serializers]   ↳ app/controllers/books_controller.rb:10
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (101.61ms)
+Completed 200 OK in 250ms (Views: 171.1ms | ActiveRecord: 32.0ms)
+
+
