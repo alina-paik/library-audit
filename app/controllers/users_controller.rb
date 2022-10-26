@@ -44,7 +44,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :email, :phone_number, :password, :password_confirmation, :admin)
+    params.require(:user).permit(:username, :email, :phone_number, :admin).merge(password: BCrypt::Password.create(params[:user][:password]))
   end
 
   def user_update_params

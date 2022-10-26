@@ -7,7 +7,6 @@ ruby '2.7.0'
 gem 'action_policy'
 gem 'dotenv-rails', groups: %i[development test]
 gem 'rubocop-rails'
-
 # serializer
 gem 'active_model_serializers'
 # pagination
@@ -25,7 +24,8 @@ gem 'puma', '~> 3.11'
 # Use Json Web Token (JWT) for token based authentication
 gem 'jwt'
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt-ruby', '3.1.0', :require => 'bcrypt'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

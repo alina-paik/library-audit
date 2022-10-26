@@ -17815,3 +17815,158 @@ Processing by AuthenticationController#logout as */*
 Completed 200 OK in 20ms (Views: 18.8ms | ActiveRecord: 0.0ms)
 
 
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", ""], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", ""], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", ""], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ashdjshf12@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "0995847362"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "phone_number", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "dgsjgfjshfj"], ["email", "ashdjshf12@gmail.com"], ["password", "teteteteteet"], ["phone_number", "0995847362"], ["created_at", "2022-10-26 13:23:29.806461"], ["updated_at", "2022-10-26 13:23:29.806461"]]
+  [1m[35m (7.8ms)[0m  [1m[36mcommit transaction[0m
+Started POST "/users" for ::1 at 2022-10-26 16:56:05 +0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"werty@gmail.com", "password"=>"[FILTERED]", "username"=>"werty", "phone_number"=>"53266449654", "admin"=>"false"}}
+Unpermitted parameter: :password
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (4.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "werty@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53266449654"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "phone_number", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "werty"], ["email", "werty@gmail.com"], ["password", "$2a$10$4ZiLLEp1UEclIYlf/iLSQ.ekTNAwsfbjpqDMdjHqAdLvreT5cnFVK"], ["phone_number", "53266449654"], ["created_at", "2022-10-26 13:56:05.762997"], ["updated_at", "2022-10-26 13:56:05.762997"]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (14.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::JsonApi (29.09ms)
+Completed 200 OK in 300ms (Views: 106.4ms | ActiveRecord: 24.6ms)
+
+
+Started DELETE "/logout" for ::1 at 2022-10-26 17:10:26 +0300
+Processing by AuthenticationController#logout as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.21ms)
+Completed 200 OK in 53ms (Views: 52.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2022-10-26 17:10:36 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"werty@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"werty@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "werty@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Completed 200 OK in 174ms (Views: 1.3ms | ActiveRecord: 4.7ms)
+
+
+Started POST "/login" for ::1 at 2022-10-26 17:11:01 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"werty@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"werty@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "werty@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+Completed 200 OK in 134ms (Views: 1.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for ::1 at 2022-10-26 17:11:58 +0300
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"test22@gmail.com", "password"=>"[FILTERED]", "username"=>"werty", "phone_number"=>"53236449654", "admin"=>"false"}}
+Unpermitted parameter: :password
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (2.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test22@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53236449654"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Create (2.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "phone_number", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "werty"], ["email", "test22@gmail.com"], ["password", "$2a$10$xBFu9shN6kCgTBSMugiKdOVfV19Z4KgQ4X6tln9vkLNxpKqObHIfa"], ["phone_number", "53236449654"], ["created_at", "2022-10-26 14:11:59.083516"], ["updated_at", "2022-10-26 14:11:59.083516"]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (37.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::JsonApi (2.22ms)
+Completed 200 OK in 226ms (Views: 8.2ms | ActiveRecord: 47.8ms)
+
+
+Started DELETE "/logout" for ::1 at 2022-10-26 17:12:20 +0300
+Processing by AuthenticationController#logout as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.23ms)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2022-10-26 17:12:42 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"test22@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"test22@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test22@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Completed 200 OK in 102ms (Views: 1.4ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/login" for ::1 at 2022-10-26 17:12:57 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"test22@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"test22@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test22@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5
+Started POST "/users" for ::1 at 2022-10-26 17:16:22 +0300
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.3ms)
+Completed 200 OK in 205126ms (Views: 21.2ms | ActiveRecord: 4.5ms)
+
+
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"test3@gmail.com", "password"=>"[FILTERED]", "username"=>"werty", "phone_number"=>"53236549654", "admin"=>"false"}}
+Unpermitted parameter: :password
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:56
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test3@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:56
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53236549654"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:56
+  [1m[36mUser Create (1.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "phone_number", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "werty"], ["email", "test3@gmail.com"], ["password", "$2a$10$nEKV0byjcEIRvRDC3170JeQGCcouO0PbCixDIQrH7n6cS/tCYLXQS"], ["phone_number", "53236549654"], ["created_at", "2022-10-26 14:18:29.236224"], ["updated_at", "2022-10-26 14:18:29.236224"]]
+  ↳ app/controllers/users_controller.rb:56
+  [1m[35m (7.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:56
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::JsonApi (1.92ms)
+Completed 200 OK in 126403ms (Views: 8.4ms | ActiveRecord: 15.4ms)
+
+
+Started POST "/users" for ::1 at 2022-10-26 17:19:11 +0300
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"test13@gmail.com", "password"=>"[FILTERED]", "username"=>"werty", "phone_number"=>"53231349654", "admin"=>"false"}}
+Unpermitted parameter: :password
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test13@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone_number" = ? LIMIT ?[0m  [["phone_number", "53231349654"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "phone_number", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "werty"], ["email", "test13@gmail.com"], ["password", "$2a$10$KWyqFiZCHTeMFBtc4H2Ek.lY/BMlUR.wGjGXdboShI52DauFVReKS"], ["phone_number", "53231349654"], ["created_at", "2022-10-26 14:19:11.480019"], ["updated_at", "2022-10-26 14:19:11.480019"]]
+  ↳ app/controllers/users_controller.rb:55
+  [1m[35m (8.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:55
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::JsonApi (2.03ms)
+Completed 200 OK in 167ms (Views: 8.7ms | ActiveRecord: 12.8ms)
+
+
+Started DELETE "/logout" for ::1 at 2022-10-26 17:19:20 +0300
+Processing by AuthenticationController#logout as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2022-10-26 17:19:53 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"test13@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"test13@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test13@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Completed 200 OK in 111ms (Views: 1.6ms | ActiveRecord: 1.1ms)
+
+

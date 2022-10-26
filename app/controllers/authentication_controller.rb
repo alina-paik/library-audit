@@ -4,7 +4,7 @@ class AuthenticationController < ApplicationController
   def login
     user = User.find_by(email: params[:email])
 
-    if user && user.password == params[:password]
+    if user && BCrypt::Password.new(user.password) == params[:password]
 
       token = encode_user_data(user_id: user.id)
       response.set_cookie(
