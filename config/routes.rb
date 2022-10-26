@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   post '/authors/invite', to: 'authors#invite_author'
   post 'books/:id/authors', to: 'books#add_author'
   delete 'books/:id/authors', to: 'books#remove_author'
+  post 'books/:id/categories', to: 'books#add_category'
+  delete 'books/:id/categories', to: 'books#remove_category'
   resources :books
   resources :categories
   resources :authors

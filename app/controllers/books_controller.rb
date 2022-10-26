@@ -2,7 +2,7 @@
 
 class BooksController < ApplicationController
   before_action :authentication, except: %i[index show]
-  before_action :set_book, only: %i[show update destroy add_author remove_author]
+  before_action :set_book, only: %i[show update destroy add_author remove_author add_category remove_category]
 
   # GET /books?page=:page
   def index
@@ -56,6 +56,33 @@ class BooksController < ApplicationController
     end
   end
 
+ # POST books/:id/categories
+  def add_category
+    authorize! @book
+    find_category
+    if @categories_ids.include?(params[:category_id])
+      render json: { message: 'category is present' }
+    elsif (category = Category.find_by(id: params[:category_id])).present?
+      @book.categories << category
+      save_book
+    else
+      render json: { message: 'category not found' }
+    end
+  end
+
+ # DEL books/:id/categories
+  def remove_category
+    authorize! @book
+    find_category
+    category = Category.find_by(id: params[:category_id])
+    if @categories_ids.include?(params[:category_id])
+      @book.categories.delete(category)
+      render json: @book, status: :ok
+    else
+      render json: { message: 'category not found' }
+    end
+  end
+
   # PUT /books/ :id
   def update
     authorize! @book
@@ -93,4 +120,8 @@ class BooksController < ApplicationController
   def find_author
     @author_ids = @book.authors.map(&:id)
   end
+
+ def find_category
+   @categories_ids = @book.categories.map(&:id)
+ end
 end

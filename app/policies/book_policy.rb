@@ -24,4 +24,16 @@ class BookPolicy < ApplicationPolicy
     author_ids = record.authors.map(&:id)
     user.admin || author_ids.include?(current_author&.id)
   end
+
+  def add_category?
+    current_author = user.author
+    author_ids = record.authors.map(&:id)
+    user.admin || author_ids.include?(current_author&.id)
+  end
+
+  def remove_category?
+    current_author = user.author
+    author_ids = record.authors.map(&:id)
+    user.admin || author_ids.include?(current_author&.id)
+  end
 end
