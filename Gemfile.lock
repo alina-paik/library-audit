@@ -51,7 +51,7 @@ GEM
       tzinfo (~> 1.1)
     arel (9.0.0)
     ast (2.4.2)
-    bcrypt (3.1.18)
+    bcrypt-ruby (3.1.0)
     bootsnap (1.13.0)
       msgpack (~> 1.2)
     builder (3.2.4)
@@ -191,7 +191,7 @@ PLATFORMS
 DEPENDENCIES
   action_policy
   active_model_serializers
-  bcrypt (~> 3.1.7)
+  bcrypt-ruby (= 3.1.0)
   bootsnap (>= 1.1.0)
   byebug
   dotenv-rails
